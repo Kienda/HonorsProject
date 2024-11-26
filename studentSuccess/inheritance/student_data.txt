@@ -1,0 +1,18 @@
+
+Name: Abdoulaye
+Email: studentsucess1@gmail.com
+Employee ID: 24424171
+Major: Computer Science
+GPA: 4
+Semester: 2
+Milestones:
+- Schollarship (Recieved): Jack kent Cooke
+- Finacial Aid (Recieved): Tap
+- FellowShip (In progress): Jump Start
+Recommendations:
+- MCC Foundation Scholarship: Scholarships
+- clubs: Excelsior Scholarship
+- Scholarships: Peter Jennings Scholarship Laurel Award
+- Internships: CUNY Service Corps Internship
+- one: done
+--------------------------------------
