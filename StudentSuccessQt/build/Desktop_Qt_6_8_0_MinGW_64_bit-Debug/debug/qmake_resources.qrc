@@ -1,0 +1,5 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/StudentSuccessQt">
+<file alias="main.qml">E:/HonorProjects/studentSuccess/StudentSuccessQt/main.qml</file>
+</qresource>
+</RCC>
