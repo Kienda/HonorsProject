@@ -103,7 +103,7 @@ ApplicationWindow {
     Window {
         id: signInWindow
         width: 400
-        height: 300
+        height: 500
         visible: false
         title: "Sign In Information"
 
@@ -111,14 +111,203 @@ ApplicationWindow {
             anchors.fill: parent
             color: "white"
 
-            Text {
-                text: "Welcome to the Sign In page!\nHere you can log in to access your account."
+            Column {
+                spacing: 20
                 anchors.centerIn: parent
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                font.pixelSize: 18
-                color: "blue"
-                wrapMode: Text.WordWrap
+                anchors.margins: 20
+
+                Text {
+                    text: "Our Services"
+                    font.pixelSize: 18
+                    font.bold: true
+                    color: "black"
+                    horizontalAlignment: Text.AlignHCenter
+                }
+
+                // Profile Set Up Button
+                Button {
+                    text: "Profile Set Up"
+                    width: 250
+                    height: 40
+                    background: Rectangle {
+                        id: profileBackground
+                        color: "blue"
+                        radius: 5
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onEntered: {
+                                profileBackground.color = "#add8e6"; // Light blue
+                                profileText.color = "#000080"; // Dark blue
+                            }
+                            onExited: {
+                                profileBackground.color = "blue";
+                                profileText.color = "white";
+                            }
+                        }
+                    }
+                    contentItem: Text {
+                        id: profileText
+                        text: "Profile Set Up"
+                        color: "white"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    onClicked: profileSetUpWindow.visible = true
+                }
+
+                // Milestone Button
+                Button {
+                    text: "Milestone"
+                    width: 250
+                    height: 40
+                    background: Rectangle {
+                        id: milestoneBackground
+                        color: "blue"
+                        radius: 5
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onEntered: {
+                                milestoneBackground.color = "#add8e6"; // Light blue
+                                milestoneText.color = "#000080"; // Dark blue
+                            }
+                            onExited: {
+                                milestoneBackground.color = "blue";
+                                milestoneText.color = "white";
+                            }
+                        }
+                    }
+                    contentItem: Text {
+                        id: milestoneText
+                        text: "Milestone"
+                        color: "white"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    onClicked: milestoneWindow.visible = true
+                }
+
+                // Recommendation Button
+                Button {
+                    text: "Recommendation"
+                    width: 250
+                    height: 40
+                    background: Rectangle {
+                        id: recommendationBackground
+                        color: "blue"
+                        radius: 5
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onEntered: {
+                                recommendationBackground.color = "#add8e6"; // Light blue
+                                recommendationText.color = "#000080"; // Dark blue
+                            }
+                            onExited: {
+                                recommendationBackground.color = "blue";
+                                recommendationText.color = "white";
+                            }
+                        }
+                    }
+                    contentItem: Text {
+                        id: recommendationText
+                        text: "Recommendation"
+                        color: "white"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    onClicked: recommendationWindow.visible = true
+                }
+
+                // Guidance Button
+                Button {
+                    text: "Guidance"
+                    width: 250
+                    height: 40
+                    background: Rectangle {
+                        id: guidanceBackground
+                        color: "blue"
+                        radius: 5
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onEntered: {
+                                guidanceBackground.color = "#add8e6"; // Light blue
+                                guidanceText.color = "#000080"; // Dark blue
+                            }
+                            onExited: {
+                                guidanceBackground.color = "blue";
+                                guidanceText.color = "white";
+                            }
+                        }
+                    }
+                    contentItem: Text {
+                        id: guidanceText
+                        text: "Guidance"
+                        color: "white"
+                        font.bold: true
+                        horizontalAlignment: Text.AlignHCenter
+                        verticalAlignment: Text.AlignVCenter
+                    }
+                    onClicked: guidanceWindow.visible = true
+                }
+            }
+        }
+
+        // Empty windows for each service
+        Window {
+            id: profileSetUpWindow
+            width: 300
+            height: 200
+            visible: false
+            title: "Profile Set Up"
+
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
+            }
+        }
+
+        Window {
+            id: milestoneWindow
+            width: 300
+            height: 200
+            visible: false
+            title: "Milestone"
+
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
+            }
+        }
+
+        Window {
+            id: recommendationWindow
+            width: 300
+            height: 200
+            visible: false
+            title: "Recommendation"
+
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
+            }
+        }
+
+        Window {
+            id: guidanceWindow
+            width: 300
+            height: 200
+            visible: false
+            title: "Guidance"
+
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
             }
         }
     }
