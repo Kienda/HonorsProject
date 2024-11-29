@@ -159,36 +159,36 @@ ApplicationWindow {
 
                 // Milestone Button
                 Button {
-                    text: "Milestone"
-                    width: 250
-                    height: 40
-                    background: Rectangle {
-                        id: milestoneBackground
-                        color: "blue"
-                        radius: 5
+                                    text: "Milestone"
+                                    width: 250
+                                    height: 40
+                                    background: Rectangle {
+                                        id: milestoneBackground
+                                        color: "blue"
+                                        radius: 5
 
-                        MouseArea {
-                            anchors.fill: parent
-                            onEntered: {
-                                milestoneBackground.color = "#add8e6"; // Light blue
-                                milestoneText.color = "#000080"; // Dark blue
-                            }
-                            onExited: {
-                                milestoneBackground.color = "blue";
-                                milestoneText.color = "white";
-                            }
-                        }
-                    }
-                    contentItem: Text {
-                        id: milestoneText
-                        text: "Milestone"
-                        color: "white"
-                        font.bold: true
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                    }
-                    onClicked: milestoneWindow.visible = true
-                }
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onEntered: {
+                                                milestoneBackground.color = "#add8e6"; // Light blue
+                                                milestoneText.color = "#000080"; // Dark blue
+                                            }
+                                            onExited: {
+                                                milestoneBackground.color = "blue";
+                                                milestoneText.color = "white";
+                                            }
+                                        }
+                                    }
+                                    contentItem: Text {
+                                        id: milestoneText
+                                        text: "Milestone"
+                                        color: "white"
+                                        font.bold: true
+                                        horizontalAlignment: Text.AlignHCenter
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+                                    onClicked: milestoneWindow.visible = true
+                                }
 
                 // Recommendation Button
                 Button {
@@ -261,8 +261,8 @@ ApplicationWindow {
         // Empty windows for each service
         Window {
             id: profileSetUpWindow
-            width: 300
-            height: 200
+            width: 640
+            height: 480
             visible: false
             title: "Profile Set Up"
 
@@ -274,21 +274,66 @@ ApplicationWindow {
 
         Window {
             id: milestoneWindow
-            width: 300
-            height: 200
+            width: 640
+            height: 480
             visible: false
             title: "Milestone"
+            color: "#ffffff"  // White background for the window
 
             Rectangle {
                 anchors.fill: parent
-                color: "white"
+                color: "#ffffff"  // White background for the content area
+                radius: 10
+
+                Column {
+                    spacing: 20
+                    anchors.centerIn: parent
+                    padding: 20
+
+                    Text {
+                        text: "Milestones:"
+                        font.pixelSize: 20
+                        font.bold: true
+                        color: "#0000ff"  // Blue text for the header
+                    }
+
+                    Text {
+                        text: "Scholarship (Received): Jack Kent Cooke"
+                        font.pixelSize: 16
+                        color: "#000000"  // Black text for the content
+                    }
+
+                    Text {
+                        text: "Financial Aid (Received): Tap"
+                        font.pixelSize: 16
+                        color: "#000000"
+                    }
+
+                    Text {
+                        text: "Fellowship (In Progress): Jump Start"
+                        font.pixelSize: 16
+                        color: "#000000"
+                    }
+
+                    Button {
+                        text: "Close"
+                        width: parent.width * 0.6
+                        height: 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        background: Rectangle {
+                            color: "#0000ff"  // Blue button background
+                            radius: 5
+                        }
+                        onClicked: milestoneWindow.visible = false
+                    }
+                }
             }
         }
 
         Window {
             id: recommendationWindow
-            width: 300
-            height: 200
+            width: 640
+            height: 480
             visible: false
             title: "Recommendation"
 
@@ -300,17 +345,129 @@ ApplicationWindow {
 
         Window {
             id: guidanceWindow
-            width: 300
-            height: 200
+            width: 640
+            height: 480
             visible: false
             title: "Guidance"
+            color: "#0000ff"  // Blue top window
 
             Rectangle {
                 anchors.fill: parent
-                color: "white"
+                color: "#ffffff"  // White background for the content area
+                radius: 10
+
+                Column {
+                    spacing: 15
+                    anchors.centerIn: parent
+                    padding: 20
+
+                    // Title
+                    Text {
+                        text: "Learning Tips"
+                        font.pixelSize: 20
+                        font.bold: true
+                        color: "#0000ff"  // Blue title text
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    // Tip 1
+                    Text {
+                        text: "Practice Active Recall"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"  // Blue subheading
+                    }
+                    Text {
+                        text: "Test yourself on key concepts instead of passively re-reading notes.\nExample: After studying a topic, close your book and try to explain it in your own words."
+                        font.pixelSize: 14
+                        color: "#000000"  // Black content text
+                    }
+
+                    // Tip 2
+                    Text {
+                        text: "Use Spaced Repetition"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"
+                    }
+                    Text {
+                        text: "Review material at gradually increasing intervals to improve long-term memory retention.\nExample: Use flashcards or apps like Anki to space out your study sessions effectively."
+                        font.pixelSize: 14
+                        color: "#000000"
+                    }
+
+                    // Tip 3
+                    Text {
+                        text: "Learn by Teaching"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"
+                    }
+                    Text {
+                        text: "Explain topics to others as if you’re teaching; it reinforces your understanding.\nExample: Form a study group and take turns teaching each other different topics."
+                        font.pixelSize: 14
+                        color: "#000000"
+                    }
+
+                    // Tip 4
+                    Text {
+                        text: "Create a Dedicated Study Schedule"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"
+                    }
+                    Text {
+                        text: "Set specific times and durations for studying each day to build a habit.\nExample: Study math from 3–4 PM and take a 10-minute break before moving to another subject."
+                        font.pixelSize: 14
+                        color: "#000000"
+                    }
+
+                    // Tip 5
+                    Text {
+                        text: "Minimize Distractions"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"
+                    }
+                    Text {
+                        text: "Study in a quiet environment and put your phone on silent mode or use focus apps.\nExample: Use apps like Focus@Will or the Pomodoro Timer for timed, distraction-free sessions."
+                        font.pixelSize: 14
+                        color: "#000000"
+                    }
+
+                    // Tip 6
+                    Text {
+                        text: "Practice Time Management"
+                        font.pixelSize: 16
+                        font.bold: true
+                        color: "#0000ff"
+                    }
+                    Text {
+                        text: "Break your study material into manageable chunks and prioritize based on deadlines.\nExample: Use a planner to divide study topics across the week, focusing on upcoming exams first."
+                        font.pixelSize: 14
+                        color: "#000000"
+                    }
+
+                    // Close Button
+                    Button {
+                        text: "Close"
+                        width: parent.width * 0.6
+                        height: 40
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        background: Rectangle {
+                            color: "#0000ff"  // Blue button background
+                            radius: 5
+                        }
+                        onClicked: guidanceWindow.visible = false
+                    }
+                }
             }
         }
     }
+
+
+
+
 
     // Sign Up Information Window
     Window {
