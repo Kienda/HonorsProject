@@ -1,26 +1,12 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include <string>
+#include "student.h"
 
-class Resource
+class resource : public student
 {
-protected:
-    std::string title;
-    std::string description;
-    std::string type;
-
 public:
-    // Constructor
-    Resource(const std::string &title, const std::string &description, const std::string &type);
-
-    // Getters
-    std::string getTitle() const;
-    std::string getDescription() const;
-    std::string getType() const;
-
-    // Display
-    virtual void display() const;
+    explicit resource(QObject *parent = nullptr);
 };
 
 #endif // RESOURCE_H

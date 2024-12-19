@@ -3,6 +3,7 @@ QT += quick
 SOURCES += \
         main.cpp \
         resource.cpp \
+        signup.cpp \
         student.cpp \
         user.cpp
 
@@ -23,6 +24,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     resource.h \
+    signup.h \
     student.h \
     user.h
 

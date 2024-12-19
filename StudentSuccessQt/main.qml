@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 
 ApplicationWindow {
     id: mainWindow
-    width: 640
-    height: 480
+    width: 1000
+    height: 1000
     visible: true
     title: qsTr("Student Success")
     color: "blue" // Set background color
@@ -102,10 +102,10 @@ ApplicationWindow {
     // Sign In Information Window
     Window {
         id: signInWindow
-        width: 400
-        height: 500
+        width: 1000
+        height: 1000
         visible: false
-        title: "Sign In Information"
+        title: "Welcome Abdoulaye"
 
         Rectangle {
             anchors.fill: parent
@@ -261,21 +261,19 @@ ApplicationWindow {
         // Empty windows for each service
         Window {
             id: profileSetUpWindow
-            width: 640
-            height: 480
+            width: 1000
+            height: 1000
             visible: false
             title: "Profile Set Up"
-
             Rectangle {
                 anchors.fill: parent
                 color: "white"
             }
         }
-
         Window {
             id: milestoneWindow
-            width: 640
-            height: 480
+            width: 1000
+            height: 1000
             visible: false
             title: "Milestone"
             color: "#ffffff"  // White background for the window
@@ -292,37 +290,71 @@ ApplicationWindow {
 
                     Text {
                         text: "Milestones:"
-                        font.pixelSize: 20
+                        font.pixelSize: 24
                         font.bold: true
                         color: "#0000ff"  // Blue text for the header
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
                     }
 
-                    Text {
-                        text: "Scholarship (Received): Jack Kent Cooke"
-                        font.pixelSize: 16
-                        color: "#000000"  // Black text for the content
-                    }
+                    Rectangle {
+                        color: "#f0f8ff"  // Light blue background for the list area
+                        radius: 5
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        width: parent.width * 0.9
+                        height: content.height + 40
+                        Column {
+                            id: content
+                            anchors.margins: 20
+                            spacing: 10
 
-                    Text {
-                        text: "Financial Aid (Received): Tap"
-                        font.pixelSize: 16
-                        color: "#000000"
-                    }
+                            Repeater {
+                                model: [
+                                    { title: "Scholarship", description: "Jack Kent Cooke", status: "Received" },
+                                    { title: "Financial Aid", description: "Tap", status: "Received" },
+                                    { title: "Fellowship", description: "Jump Start", status: "In Progress" },
+                                    { title: "Internship", description: "JPMorgan Internship", status: "Completed" },
+                                    { title: "GPA", description: "4.0", status: "2 Semester" }
+                                ]
 
-                    Text {
-                        text: "Fellowship (In Progress): Jump Start"
-                        font.pixelSize: 16
-                        color: "#000000"
+                                delegate: Row {
+                                    spacing: 10
+
+                                    Text {
+                                        text: modelData.title + ":"
+                                        font.pixelSize: 16
+                                        font.bold: true
+                                        color: "#0000ff"  // Blue text for titles
+                                    }
+                                    Text {
+                                        text: modelData.description
+                                        font.pixelSize: 16
+                                        color: "#000000"  // Black text for descriptions
+                                    }
+                                    Text {
+                                        text: "(" + modelData.status + ")"
+                                        font.pixelSize: 16
+                                        color: "#008000"  // Green text for status
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     Button {
                         text: "Close"
-                        width: parent.width * 0.6
+                        width: parent.width * 0.3
                         height: 40
                         anchors.horizontalCenter: parent.horizontalCenter
                         background: Rectangle {
                             color: "#0000ff"  // Blue button background
                             radius: 5
+                        }
+                        contentItem: Text {
+                            text: "Close"
+                            font.pixelSize: 16
+                            color: "#ffffff"  // White text for the button
+                            anchors.centerIn: parent
                         }
                         onClicked: milestoneWindow.visible = false
                     }
@@ -332,21 +364,148 @@ ApplicationWindow {
 
         Window {
             id: recommendationWindow
-            width: 640
-            height: 480
-            visible: false
+            width: 1000
+            height: 1000
             title: "Recommendation"
 
             Rectangle {
                 anchors.fill: parent
-                color: "white"
+                color: "#ffffff" // White background
+
+                Column {
+                    spacing: 20
+                    anchors.margins: 20
+                    anchors.fill: parent
+
+                    // Header Section
+                    Rectangle {
+                        width: parent.width
+                        height: 60
+                        color: "#0000ff" // Blue background
+                        anchors.horizontalCenter: parent.horizontalCenter
+
+                        Text {
+                            text: "Recommendations"
+                            font.pixelSize: 24
+                            font.bold: true
+                            color: "#ffffff" // White text
+                            anchors.centerIn: parent
+                        }
+                    }
+
+                    // Content Section
+                    ScrollView {
+                        width: parent.width
+                        height: parent.height - 140
+
+                        Column {
+                            spacing: 10
+                            width: parent.width - 40
+                            anchors.horizontalCenter: parent.horizontalCenter
+
+                            // Scholarships Section
+                            Text {
+                                text: "Scholarships:"
+                                font.pixelSize: 20
+                                font.bold: true
+                                color: "#0000ff"
+                            }
+                            Text {
+                                text: "• BMCC Foundation Scholarship: A need-based scholarship awarded to students with financial hardship and strong academic performance. Recipients must maintain a 3.0 GPA and full-time enrollment."
+                                wrapMode: Text.WordWrap
+                                color: "#000000" // Black text
+                            }
+                            Text {
+                                text: "• Excelsior Scholarship: A tuition-free scholarship for New York State residents attending CUNY or SUNY schools. Students must enroll full-time, complete their degree on time, and stay in New York after graduation."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                            Text {
+                                text: "• Peter Jennings Scholarship Laurel Award: A merit-based scholarship for students transitioning from high school equivalency programs to college. It supports academic achievers pursuing degrees at CUNY institutions."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+
+                            // Clubs Section
+                            Text {
+                                text: "Clubs:"
+                                font.pixelSize: 20
+                                font.bold: true
+                                color: "#0000ff"
+                                anchors.topMargin: 10
+                            }
+                            Text {
+                                text: "• Phi Theta Kappa (PTK) Honor Society: An international honor society for two-year colleges that recognizes and encourages academic excellence. Members benefit from scholarships, leadership opportunities, and access to an extensive alumni network."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                            Text {
+                                text: "• National Society of Leadership and Success (NSLS): A leadership-focused organization that helps students develop leadership, career, and interpersonal skills. Members have access to exclusive workshops, speaker events, and networking opportunities."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                            Text {
+                                text: "• BMCC Programming Club: Provides a platform for students interested in coding, software development, and technology. Members participate in hackathons, workshops, and collaborative projects to enhance technical skills and career readiness."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+
+                            // Internships Section
+                            Text {
+                                text: "Internships:"
+                                font.pixelSize: 20
+                                font.bold: true
+                                color: "#0000ff"
+                                anchors.topMargin: 10
+                            }
+                            Text {
+                                text: "• CUNY Service Corps Internship: Connects students with community-based organizations, government agencies, and nonprofits for hands-on professional experience. Participants work on projects in areas such as education, health, and sustainability while earning a stipend."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                            Text {
+                                text: "• BMCC Internship Program: Offers placements across various industries, including business, technology, and healthcare. Students gain practical work experience, develop professional skills, and build networks for future career opportunities."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                            Text {
+                                text: "• JPMorgan Chase Internship through CUNY EDGE: Provides opportunities to work in financial services. Interns learn about banking operations, develop professional skills, and gain exposure to corporate environments."
+                                wrapMode: Text.WordWrap
+                                color: "#000000"
+                            }
+                        }
+                    }
+
+                    // Close Button Section
+                    Button {
+                        text: "Close"
+                        width: 120
+                        height: 40
+                        background: Rectangle {
+                            color: "#0000ff" // Blue background
+                            radius: 5
+                            border.color: "white"
+                            border.width: 1
+                        }
+                        font.pixelSize: 16
+                        contentItem: Text {
+                            text: "Close"
+                            color: "#ffffff" // White text
+                            font.bold: true
+                            anchors.centerIn: parent
+                        }
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        onClicked: recommendationWindow.visible = false
+                    }
+                }
             }
         }
 
+
         Window {
             id: guidanceWindow
-            width: 640
-            height: 480
+            width: 1000
+            height: 1000
             visible: false
             title: "Guidance"
             color: "#0000ff"  // Blue top window
@@ -470,134 +629,143 @@ ApplicationWindow {
 
 
     // Sign Up Information Window
-    Window {
-        id: signUpWindow
-        width: 400
-        height: 500
-        visible: false
-        title: "Student Sign-Up"
+        Window {
+            id: signUpWindow
+            width: 1000
+            height: 1000
+            visible: false
+            title: "Student Sign-Up"
 
-        Rectangle {
-            anchors.fill: parent
-            color: "white"
-            border.color: "blue"
-            border.width: 2
+            Rectangle {
+                anchors.fill: parent
+                color: "white"
+                border.color: "blue"
+                border.width: 2
 
-            Column {
-                spacing: 15
-                anchors.centerIn: parent
+                Column {
+                    spacing: 15
+                    anchors.centerIn: parent
 
-                Text {
-                    text: "Create Your Account"
-                    font.pixelSize: 20
-                    font.bold: true
-                    color: "blue"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                TextField {
-                    id: nameField
-                    placeholderText: "Enter Name"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                TextField {
-                    id: emailField
-                    placeholderText: "Enter Email"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                TextField {
-                    id: majorField
-                    placeholderText: "Enter Major"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                TextField {
-                    id: emplIDField
-                    placeholderText: "Enter Employee ID"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                TextField {
-                    id: semesterField
-                    placeholderText: "Enter Semester"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                TextField {
-                    id: gpaField
-                    placeholderText: "Enter GPA"
-                    width: 300
-                    height: 40
-                    font.pixelSize: 16
-                    background: Rectangle {
-                        color: "lightgray"
-                        radius: 5
-                    }
-                }
-
-                Button {
-                    text: "Submit"
-                    width: 150
-                    height: 40
-                    font.bold: true
-                    background: Rectangle {
-                        color: "blue"
-                        radius: 5
-                    }
-                    contentItem: Text {
-                        text: "Submit"
-                        color: "white"
+                    Text {
+                        text: "Create Your Account"
+                        font.pixelSize: 20
                         font.bold: true
+                        color: "blue"
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
                     }
-                    onClicked: {
-                        console.log("Name: " + nameField.text)
-                        console.log("Email: " + emailField.text)
-                        console.log("Major: " + majorField.text)
-                        console.log("Employee ID: " + emplIDField.text)
-                        console.log("Semester: " + semesterField.text)
-                        console.log("GPA: " + gpaField.text)
-                        // Add logic to save or handle the submitted data
+
+                    TextField {
+                        id: nameField
+                        placeholderText: "Enter Name"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    TextField {
+                        id: emailField
+                        placeholderText: "Enter Email"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    TextField {
+                        id: majorField
+                        placeholderText: "Enter Major"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    TextField {
+                        id: emplIDField
+                        placeholderText: "Enter Employee ID"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    TextField {
+                        id: semesterField
+                        placeholderText: "Enter Semester"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    TextField {
+                        id: gpaField
+                        placeholderText: "Enter GPA"
+                        width: 300
+                        height: 40
+                        font.pixelSize: 16
+                        background: Rectangle {
+                            color: "lightgray"
+                            radius: 5
+                        }
+                    }
+
+                    Button {
+                        text: "Submit"
+                        width: 150
+                        height: 40
+                        font.bold: true
+                        background: Rectangle {
+                            color: "blue"
+                            radius: 5
+                        }
+                        contentItem: Text {
+                            text: "Submit"
+                            color: "white"
+                            font.bold: true
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                        }
+                        onClicked: {
+                            var data = {
+                                    "Name": nameField.text,
+                                    "Email": emailField.text,
+                                    "Major": majorField.text,
+                                    "Employee ID": emplIDField.text,
+                                    "Semester": semesterField.text,
+                                    "GPA": gpaField.text
+                                };
+
+                                var fileUrl = "file://data.json";
+                                var jsonString = JSON.stringify(data);
+
+                                var file = new XMLHttpRequest();
+                                file.open("PUT", fileUrl, true);
+                                file.setRequestHeader("Content-Type", "application/json");
+
+                                file.send(jsonString);
+
+                                console.log("Data saved to data.json");
+                        }
                     }
                 }
             }
         }
-    }
-
-
 }
-
