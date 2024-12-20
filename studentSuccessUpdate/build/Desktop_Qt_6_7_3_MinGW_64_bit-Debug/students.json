@@ -22,5 +22,13 @@
         "major": "Computer Science",
         "name": "Abdoulaye Diallo",
         "semester": 3
+    },
+    {
+        "email": "studentsuccess1@gmail.com",
+        "gpa": 4,
+        "id": 242424,
+        "major": "Computer Science",
+        "name": "Abdoulaye Diallo",
+        "semester": 3
     }
 ]

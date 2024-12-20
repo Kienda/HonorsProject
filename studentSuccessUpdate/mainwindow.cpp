@@ -33,11 +33,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_login_clicked()
 {
-    QString uStudentId = ui->StudentId->text();
     QString uStudentEmail = ui->studentEmail->text();
+    QString uStudentId = ui->StudentId->text();
 
-    if (Student::validateLogin(uStudentEmail, uStudentId, "students.json")) {
-        QMessageBox::information(this, "Welcome", "Login successful! Welcome to the Student Success Profile.");
+    QString studentName = Student::validateLogin(uStudentEmail, uStudentId, "students.json");
+
+    if (!studentName.isEmpty()) {
+        QMessageBox::information(this, "Welcome", "Login successful! Welcome, " + studentName + ".");
+
+        // Open the navigation window
+        NavigationWindow *navWindow = new NavigationWindow(this);
+        navWindow->setStudentName(studentName); // Pass the student's name to the navigation window
+        navWindow->show();
+        this->hide(); // Hide the current login window
     } else {
         QMessageBox::critical(this, "Error", "Invalid email or ID.");
     }

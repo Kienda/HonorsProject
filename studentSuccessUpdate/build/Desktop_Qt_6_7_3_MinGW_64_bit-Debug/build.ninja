@@ -89,6 +89,38 @@ build CMakeFiles/studentSuccessUpdate.dir/user.cpp.obj: CXX_COMPILER__studentSuc
   OBJECT_DIR = CMakeFiles\studentSuccessUpdate.dir
   OBJECT_FILE_DIR = CMakeFiles\studentSuccessUpdate.dir
 
+build CMakeFiles/studentSuccessUpdate.dir/navigationwindow.cpp.obj: CXX_COMPILER__studentSuccessUpdate_unscanned_Debug E$:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/navigationwindow.cpp || cmake_object_order_depends_target_studentSuccessUpdate
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\studentSuccessUpdate.dir\navigationwindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IE:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/include -isystem C:/Qt/6.7.3/mingw_64/include/QtCore -isystem C:/Qt/6.7.3/mingw_64/include -isystem C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.3/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\studentSuccessUpdate.dir
+  OBJECT_FILE_DIR = CMakeFiles\studentSuccessUpdate.dir
+
+build CMakeFiles/studentSuccessUpdate.dir/milestonewindow.cpp.obj: CXX_COMPILER__studentSuccessUpdate_unscanned_Debug E$:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestonewindow.cpp || cmake_object_order_depends_target_studentSuccessUpdate
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\studentSuccessUpdate.dir\milestonewindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IE:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/include -isystem C:/Qt/6.7.3/mingw_64/include/QtCore -isystem C:/Qt/6.7.3/mingw_64/include -isystem C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.3/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\studentSuccessUpdate.dir
+  OBJECT_FILE_DIR = CMakeFiles\studentSuccessUpdate.dir
+
+build CMakeFiles/studentSuccessUpdate.dir/recommendationwindow.cpp.obj: CXX_COMPILER__studentSuccessUpdate_unscanned_Debug E$:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/recommendationwindow.cpp || cmake_object_order_depends_target_studentSuccessUpdate
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\studentSuccessUpdate.dir\recommendationwindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IE:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/include -isystem C:/Qt/6.7.3/mingw_64/include/QtCore -isystem C:/Qt/6.7.3/mingw_64/include -isystem C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.3/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\studentSuccessUpdate.dir
+  OBJECT_FILE_DIR = CMakeFiles\studentSuccessUpdate.dir
+
+build CMakeFiles/studentSuccessUpdate.dir/guidancewindow.cpp.obj: CXX_COMPILER__studentSuccessUpdate_unscanned_Debug E$:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidancewindow.cpp || cmake_object_order_depends_target_studentSuccessUpdate
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\studentSuccessUpdate.dir\guidancewindow.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IE:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/include -isystem C:/Qt/6.7.3/mingw_64/include/QtCore -isystem C:/Qt/6.7.3/mingw_64/include -isystem C:/Qt/6.7.3/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.7.3/mingw_64/include/QtWidgets -isystem C:/Qt/6.7.3/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\studentSuccessUpdate.dir
+  OBJECT_FILE_DIR = CMakeFiles\studentSuccessUpdate.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target studentSuccessUpdate
@@ -97,7 +129,7 @@ build CMakeFiles/studentSuccessUpdate.dir/user.cpp.obj: CXX_COMPILER__studentSuc
 #############################################
 # Link the executable studentSuccessUpdate.exe
 
-build studentSuccessUpdate.exe: CXX_EXECUTABLE_LINKER__studentSuccessUpdate_Debug CMakeFiles/studentSuccessUpdate.dir/studentSuccessUpdate_autogen/mocs_compilation.cpp.obj CMakeFiles/studentSuccessUpdate.dir/main.cpp.obj CMakeFiles/studentSuccessUpdate.dir/mainwindow.cpp.obj CMakeFiles/studentSuccessUpdate.dir/student.cpp.obj CMakeFiles/studentSuccessUpdate.dir/user.cpp.obj | C$:/Qt/6.7.3/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.3/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.3/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.3/mingw_64/lib/libQt6EntryPoint.a || studentSuccessUpdate_autogen studentSuccessUpdate_autogen_timestamp_deps
+build studentSuccessUpdate.exe: CXX_EXECUTABLE_LINKER__studentSuccessUpdate_Debug CMakeFiles/studentSuccessUpdate.dir/studentSuccessUpdate_autogen/mocs_compilation.cpp.obj CMakeFiles/studentSuccessUpdate.dir/main.cpp.obj CMakeFiles/studentSuccessUpdate.dir/mainwindow.cpp.obj CMakeFiles/studentSuccessUpdate.dir/student.cpp.obj CMakeFiles/studentSuccessUpdate.dir/user.cpp.obj CMakeFiles/studentSuccessUpdate.dir/navigationwindow.cpp.obj CMakeFiles/studentSuccessUpdate.dir/milestonewindow.cpp.obj CMakeFiles/studentSuccessUpdate.dir/recommendationwindow.cpp.obj CMakeFiles/studentSuccessUpdate.dir/guidancewindow.cpp.obj | C$:/Qt/6.7.3/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.3/mingw_64/lib/libQt6Gui.a C$:/Qt/6.7.3/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.3/mingw_64/lib/libQt6EntryPoint.a || studentSuccessUpdate_autogen studentSuccessUpdate_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.7.3/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.7.3/mingw_64/lib/libQt6Gui.a  C:/Qt/6.7.3/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.7.3/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -184,7 +216,7 @@ build studentSuccessUpdate_autogen_timestamp_deps: phony
 #############################################
 # Utility command for studentSuccessUpdate_autogen
 
-build studentSuccessUpdate_autogen: phony CMakeFiles/studentSuccessUpdate_autogen studentSuccessUpdate_autogen/include/ui_mainwindow.h studentSuccessUpdate_autogen/timestamp studentSuccessUpdate_autogen/mocs_compilation.cpp studentSuccessUpdate_autogen_timestamp_deps
+build studentSuccessUpdate_autogen: phony CMakeFiles/studentSuccessUpdate_autogen studentSuccessUpdate_autogen/include/ui_mainwindow.h studentSuccessUpdate_autogen/include/ui_navigationwindow.h studentSuccessUpdate_autogen/timestamp studentSuccessUpdate_autogen/mocs_compilation.cpp studentSuccessUpdate_autogen_timestamp_deps
 
 
 #############################################
@@ -201,7 +233,7 @@ build studentSuccessUpdate_autogen/timestamp studentSuccessUpdate_autogen/mocs_c
 #############################################
 # Phony custom command for CMakeFiles\studentSuccessUpdate_autogen
 
-build CMakeFiles/studentSuccessUpdate_autogen studentSuccessUpdate_autogen/include/ui_mainwindow.h | ${cmake_ninja_workdir}CMakeFiles/studentSuccessUpdate_autogen ${cmake_ninja_workdir}studentSuccessUpdate_autogen/include/ui_mainwindow.h: phony studentSuccessUpdate_autogen/timestamp || studentSuccessUpdate_autogen_timestamp_deps
+build CMakeFiles/studentSuccessUpdate_autogen studentSuccessUpdate_autogen/include/ui_mainwindow.h studentSuccessUpdate_autogen/include/ui_navigationwindow.h | ${cmake_ninja_workdir}CMakeFiles/studentSuccessUpdate_autogen ${cmake_ninja_workdir}studentSuccessUpdate_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}studentSuccessUpdate_autogen/include/ui_navigationwindow.h: phony studentSuccessUpdate_autogen/timestamp || studentSuccessUpdate_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

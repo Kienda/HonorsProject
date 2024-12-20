@@ -254,27 +254,7 @@
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "studentSuccessUpdate_autogen/timestamp",
-	"HEADERS" : 
-	[
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/mainwindow.h",
-			"MU",
-			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		],
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/student.h",
-			"MU",
-			"EWIEGA46WW/moc_student.cpp",
-			null
-		],
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/user.h",
-			"MU",
-			"EWIEGA46WW/moc_user.cpp",
-			null
-		]
-	],
+	"HEADERS" : [],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/include",
 	"MOC_COMPILATION_FILE" : "E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/mocs_compilation.cpp",
@@ -344,29 +324,7 @@
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 7,
 	"SETTINGS_FILE" : "E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/studentSuccessUpdate_autogen.dir/AutogenUsed.txt",
-	"SOURCES" : 
-	[
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/main.cpp",
-			"MU",
-			null
-		],
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/mainwindow.cpp",
-			"MU",
-			null
-		],
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/student.cpp",
-			"MU",
-			null
-		],
-		[
-			"E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/user.cpp",
-			"MU",
-			null
-		]
-	],
+	"SOURCES" : [],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
 	"UIC_SKIP" : [],
