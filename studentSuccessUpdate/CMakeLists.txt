@@ -42,9 +42,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         navigationwindow.ui
         navigationwindow.h navigationwindow.cpp navigationwindow.ui
-        milestonewindow.h milestonewindow.cpp milestonewindow.ui
-        recommendationwindow.h recommendationwindow.cpp recommendationwindow.ui
-        guidancewindow.h guidancewindow.cpp guidancewindow.ui
+        milestoneWindow.h milestoneWindow.cpp milestoneWindow.ui
+        recommendationWindow.h recommendationWindow.cpp recommendationWindow.ui
+        guidanceWindow.h guidanceWindow.cpp guidanceWindow.ui
     )
 else()
     if(ANDROID)

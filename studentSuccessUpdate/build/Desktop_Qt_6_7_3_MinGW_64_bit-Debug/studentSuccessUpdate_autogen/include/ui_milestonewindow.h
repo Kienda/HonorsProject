@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -18,12 +19,26 @@ QT_BEGIN_NAMESPACE
 class Ui_MilestoneWindow
 {
 public:
+    QLabel *label;
+    QLabel *label_2;
 
     void setupUi(QWidget *MilestoneWindow)
     {
         if (MilestoneWindow->objectName().isEmpty())
             MilestoneWindow->setObjectName("MilestoneWindow");
-        MilestoneWindow->resize(400, 300);
+        MilestoneWindow->resize(682, 458);
+        MilestoneWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 247, 255);"));
+        label = new QLabel(MilestoneWindow);
+        label->setObjectName("label");
+        label->setGeometry(QRect(80, 60, 261, 31));
+        label->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
+"font: 700 14pt \"Segoe UI\";"));
+        label_2 = new QLabel(MilestoneWindow);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(70, 100, 551, 351));
+        label_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 14pt \"Segoe UI\";\n"
+"background-color: rgb(255, 255, 255);"));
 
         retranslateUi(MilestoneWindow);
 
@@ -33,6 +48,14 @@ public:
     void retranslateUi(QWidget *MilestoneWindow)
     {
         MilestoneWindow->setWindowTitle(QCoreApplication::translate("MilestoneWindow", "Form", nullptr));
+        label->setText(QCoreApplication::translate("MilestoneWindow", "Milestone", nullptr));
+        label_2->setText(QCoreApplication::translate("MilestoneWindow", " Title     Descrition      Status\n"
+" Schollarship Jack kent Cooke Recieved\n"
+" Finacial Aid Tap Recieved\n"
+" FellowShip Jump Start In progress\n"
+" Internship JPmorgan Internship Completed\n"
+" GPA 4.0 2 Semester\n"
+"", nullptr));
     } // retranslateUi
 
 };

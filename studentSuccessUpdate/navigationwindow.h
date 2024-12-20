@@ -4,7 +4,7 @@
 #include <QMainWindow>
 
 namespace Ui {
-class Profile;
+class NavigationWindow;
 }
 
 class NavigationWindow : public QMainWindow {
@@ -22,7 +22,7 @@ private slots:
     void on_guidanceButton_clicked();
 
 private:
-    Ui::Profile *ui;
+    Ui::NavigationWindow *ui;
 };
 
 #endif // NAVIGATIONWINDOW_H

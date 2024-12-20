@@ -17,73 +17,66 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Profile
+class Ui_NavigationWindow
 {
 public:
-    QPushButton *milestoneButton;
     QPushButton *recommendationButton;
     QPushButton *guidanceButton;
     QLabel *studentNameLabel;
+    QPushButton *milestoneButton;
 
-    void setupUi(QWidget *Profile)
+    void setupUi(QWidget *NavigationWindow)
     {
-        if (Profile->objectName().isEmpty())
-            Profile->setObjectName("Profile");
-        Profile->resize(686, 495);
-        Profile->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 247, 255);"));
-        milestoneButton = new QPushButton(Profile);
-        milestoneButton->setObjectName("milestoneButton");
-        milestoneButton->setEnabled(false);
-        milestoneButton->setGeometry(QRect(220, 90, 251, 71));
-        milestoneButton->setStyleSheet(QString::fromUtf8("#milestoneButton{\n"
-"font: 700 14pt \"Segoe UI\";\n"
-"background-color: rgb(0, 0, 255);\n"
-"border-radius: 5px;\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"#milestoneButton:hover{\n"
-"	background-color: rgb(0, 85, 255);\n"
-"}\n"
-""));
-        milestoneButton->setAutoDefault(false);
-        recommendationButton = new QPushButton(Profile);
+        if (NavigationWindow->objectName().isEmpty())
+            NavigationWindow->setObjectName("NavigationWindow");
+        NavigationWindow->setEnabled(true);
+        NavigationWindow->resize(836, 495);
+        NavigationWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 247, 255);"));
+        recommendationButton = new QPushButton(NavigationWindow);
         recommendationButton->setObjectName("recommendationButton");
-        recommendationButton->setGeometry(QRect(220, 180, 251, 71));
+        recommendationButton->setGeometry(QRect(290, 200, 251, 71));
         recommendationButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
-        guidanceButton = new QPushButton(Profile);
+        guidanceButton = new QPushButton(NavigationWindow);
         guidanceButton->setObjectName("guidanceButton");
-        guidanceButton->setGeometry(QRect(220, 270, 251, 71));
+        guidanceButton->setGeometry(QRect(290, 290, 251, 71));
         guidanceButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
-        studentNameLabel = new QLabel(Profile);
+        studentNameLabel = new QLabel(NavigationWindow);
         studentNameLabel->setObjectName("studentNameLabel");
         studentNameLabel->setGeometry(QRect(50, 30, 591, 31));
         studentNameLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
 "font: 700 14pt \"Segoe UI\";"));
+        milestoneButton = new QPushButton(NavigationWindow);
+        milestoneButton->setObjectName("milestoneButton");
+        milestoneButton->setGeometry(QRect(290, 110, 251, 71));
+        milestoneButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
+"color: rgb(255, 255, 255);\n"
+"background-color: rgb(0, 0, 255);\n"
+"border-radius: 5px;"));
 
-        retranslateUi(Profile);
+        retranslateUi(NavigationWindow);
 
-        QMetaObject::connectSlotsByName(Profile);
+        QMetaObject::connectSlotsByName(NavigationWindow);
     } // setupUi
 
-    void retranslateUi(QWidget *Profile)
+    void retranslateUi(QWidget *NavigationWindow)
     {
-        Profile->setWindowTitle(QCoreApplication::translate("Profile", "Form", nullptr));
-        milestoneButton->setText(QCoreApplication::translate("Profile", "Milestone", nullptr));
-        recommendationButton->setText(QCoreApplication::translate("Profile", "Recommendation", nullptr));
-        guidanceButton->setText(QCoreApplication::translate("Profile", "Guidence", nullptr));
+        NavigationWindow->setWindowTitle(QCoreApplication::translate("NavigationWindow", "Form", nullptr));
+        recommendationButton->setText(QCoreApplication::translate("NavigationWindow", "Recommendation", nullptr));
+        guidanceButton->setText(QCoreApplication::translate("NavigationWindow", "Guidence", nullptr));
         studentNameLabel->setText(QString());
+        milestoneButton->setText(QCoreApplication::translate("NavigationWindow", "Milestone", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Profile: public Ui_Profile {};
+    class NavigationWindow: public Ui_NavigationWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE

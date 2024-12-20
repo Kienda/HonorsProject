@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Profile</class>
- <widget class="QWidget" name="Profile">
+ <class>NavigationWindow</class>
+ <widget class="QWidget" name="NavigationWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
+    <width>836</width>
     <height>495</height>
    </rect>
   </property>
@@ -16,42 +19,11 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 247, 255);</string>
   </property>
-  <widget class="QPushButton" name="milestoneButton">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>90</y>
-     <width>251</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">#milestoneButton{
-font: 700 14pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 255);
-border-radius: 5px;
-color: rgb(255, 255, 255);
-}
-#milestoneButton:hover{
-	background-color: rgb(0, 85, 255);
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Milestone</string>
-   </property>
-   <property name="autoDefault">
-    <bool>false</bool>
-   </property>
-  </widget>
   <widget class="QPushButton" name="recommendationButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>180</y>
+     <x>290</x>
+     <y>200</y>
      <width>251</width>
      <height>71</height>
     </rect>
@@ -69,8 +41,8 @@ border-radius: 5px;</string>
   <widget class="QPushButton" name="guidanceButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>270</y>
+     <x>290</x>
+     <y>290</y>
      <width>251</width>
      <height>71</height>
     </rect>
@@ -100,6 +72,25 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="milestoneButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>110</y>
+     <width>251</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 255);
+border-radius: 5px;</string>
+   </property>
+   <property name="text">
+    <string>Milestone</string>
    </property>
   </widget>
  </widget>

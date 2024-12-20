@@ -522,22 +522,23 @@ studentSuccessUpdate_autogen/timestamp: \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/moc_predefs.h \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidancewindow.cpp \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidancewindow.h \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidanceWindow.cpp \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidanceWindow.h \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/main.cpp \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/mainwindow.cpp \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/mainwindow.h \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestonewindow.cpp \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestoneWindow.cpp \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestoneWindow.h \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestonewindow.h \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/navigationwindow.cpp \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/navigationwindow.h \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/recommendationwindow.cpp \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/recommendationwindow.h \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/recommendationWindow.cpp \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/recommendationWindow.h \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/student.cpp \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/student.h \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/user.cpp \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/user.h \
-	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidancewindow.ui \
+	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidanceWindow.ui \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/mainwindow.ui \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestonewindow.ui \
 	E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/navigationwindow.ui \
