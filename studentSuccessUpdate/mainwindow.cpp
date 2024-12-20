@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Initially show Login form and hide Sign-Up form
     ui->loginBox->show();
-    ui->signUpBox->hide();
+    ui->signUpBox->show();
 }
 
 MainWindow::~MainWindow()

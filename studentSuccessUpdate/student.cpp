@@ -22,7 +22,7 @@ void Student::saveToJson(const QString &filename) const
     QJsonObject studentObject;
     studentObject["name"] = m_name;
     studentObject["email"] = m_email;
-    studentObject["id"] = m_id;
+    studentObject["id"] = m_id; // Stored as an integer
     studentObject["major"] = m_major;
     studentObject["gpa"] = m_gpa;
     studentObject["semester"] = m_semester;
@@ -48,7 +48,7 @@ bool Student::validateLogin(const QString &email, const QString &id, const QStri
 
             for (const QJsonValue &value : studentsArray) {
                 QJsonObject obj = value.toObject();
-                if (obj["email"].toString() == email && obj["id"].toString() == id) {
+                if (obj["email"].toString() == email && obj["id"].toInt() == id.toInt()) {
                     return true;
                 }
             }
@@ -56,19 +56,4 @@ bool Student::validateLogin(const QString &email, const QString &id, const QStri
     }
 
     return false;
-}
-
-QString Student::major() const
-{
-    return m_major;
-}
-
-double Student::gpa() const
-{
-    return m_gpa;
-}
-
-int Student::semester() const
-{
-    return m_semester;
 }
