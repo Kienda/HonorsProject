@@ -24,6 +24,7 @@ public:
     QPushButton *guidanceButton;
     QLabel *studentNameLabel;
     QPushButton *milestoneButton;
+    QLabel *studentGpaLabel;
 
     void setupUi(QWidget *NavigationWindow)
     {
@@ -58,6 +59,11 @@ public:
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
+        studentGpaLabel = new QLabel(NavigationWindow);
+        studentGpaLabel->setObjectName("studentGpaLabel");
+        studentGpaLabel->setGeometry(QRect(110, 380, 591, 31));
+        studentGpaLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
+"font: 700 14pt \"Segoe UI\";"));
 
         retranslateUi(NavigationWindow);
 
@@ -71,6 +77,7 @@ public:
         guidanceButton->setText(QCoreApplication::translate("NavigationWindow", "Guidence", nullptr));
         studentNameLabel->setText(QString());
         milestoneButton->setText(QCoreApplication::translate("NavigationWindow", "Milestone", nullptr));
+        studentGpaLabel->setText(QString());
     } // retranslateUi
 
 };

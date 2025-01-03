@@ -38,5 +38,69 @@
         "major": "Computer Science",
         "name": "Abdoulaye Diallo",
         "semester": 3
+    },
+    {
+        "email": "studentsuccess2@gmail.com",
+        "gpa": 3.5,
+        "id": "252525",
+        "major": "Conputer Information System",
+        "name": "Amadou Bah",
+        "semester": 2
+    },
+    {
+        "email": "Boubacar Diallo",
+        "gpa": 3.5,
+        "id": "262626",
+        "major": "Computer Science",
+        "name": "studentsuccess3@gmail.com",
+        "semester": 3
+    },
+    {
+        "email": "studentsuccess3@gmail.com",
+        "gpa": 4,
+        "id": "262626",
+        "major": "Computer Science ",
+        "name": "Bob Ecknan",
+        "semester": 3
+    },
+    {
+        "email": "studentsuccess4@gmail.com",
+        "gpa": 3,
+        "id": "272727",
+        "major": "Computer Science",
+        "name": "Bob",
+        "semester": 4
+    },
+    {
+        "email": "studentsuccess10@gmail.com",
+        "gpa": 4,
+        "id": "282828",
+        "major": "Computer Science",
+        "name": "David",
+        "semester": 4
+    },
+    {
+        "email": "john@gmail.com",
+        "gpa": 3.65,
+        "id": "8765432",
+        "major": "CNT",
+        "name": "John",
+        "semester": 3
+    },
+    {
+        "email": "mary@gmail.com",
+        "gpa": 2,
+        "id": "3245",
+        "major": "Social Science",
+        "name": "Mary",
+        "semester": 1
+    },
+    {
+        "email": "mariamacherif@gmail.com",
+        "gpa": 0,
+        "id": "101010",
+        "major": "Nursing",
+        "name": "Mariama",
+        "semester": 1
     }
 ]

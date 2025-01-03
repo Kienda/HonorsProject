@@ -5,7 +5,7 @@
 #include "navigationwindow.h"
 
 namespace Ui {
-class StudentSuccess;
+class MainWindow;
 }
 
 class MainWindow : public QMainWindow {
@@ -20,7 +20,7 @@ private slots:
     void on_signUp_clicked();
 
 private:
-    Ui::StudentSuccess *ui;
+    Ui::MainWindow *ui;
     NavigationWindow *navWindow;
 };
 

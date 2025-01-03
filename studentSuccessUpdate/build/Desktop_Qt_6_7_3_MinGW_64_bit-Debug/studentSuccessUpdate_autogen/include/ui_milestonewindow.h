@@ -21,12 +21,13 @@ class Ui_MilestoneWindow
 public:
     QLabel *label;
     QLabel *label_2;
+    QLabel *gpaLabel;
 
     void setupUi(QWidget *MilestoneWindow)
     {
         if (MilestoneWindow->objectName().isEmpty())
             MilestoneWindow->setObjectName("MilestoneWindow");
-        MilestoneWindow->resize(682, 458);
+        MilestoneWindow->resize(682, 477);
         MilestoneWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 247, 255);"));
         label = new QLabel(MilestoneWindow);
         label->setObjectName("label");
@@ -37,6 +38,12 @@ public:
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(70, 100, 551, 351));
         label_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 14pt \"Segoe UI\";\n"
+"background-color: rgb(255, 255, 255);"));
+        gpaLabel = new QLabel(MilestoneWindow);
+        gpaLabel->setObjectName("gpaLabel");
+        gpaLabel->setGeometry(QRect(360, 50, 301, 31));
+        gpaLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "font: 14pt \"Segoe UI\";\n"
 "background-color: rgb(255, 255, 255);"));
 
@@ -56,6 +63,7 @@ public:
 " Internship JPmorgan Internship Completed\n"
 " GPA 4.0 2 Semester\n"
 "", nullptr));
+        gpaLabel->setText(QString());
     } // retranslateUi
 
 };

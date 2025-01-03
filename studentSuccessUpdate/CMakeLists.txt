@@ -17,7 +17,7 @@ if(BUILD_DEBUG)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# Find Qt Package
+# Find Qt Package\
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 

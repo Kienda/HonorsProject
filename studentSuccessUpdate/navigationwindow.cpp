@@ -1,61 +1,38 @@
 #include "navigationwindow.h"
+#include <QMessageBox>
 #include "ui_navigationwindow.h"
-#include "milestonewindow.h"
-#include "recommendationwindow.h"
-#include "guidancewindow.h"
-#include <QDebug>
 
 NavigationWindow::NavigationWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::NavigationWindow)
-{
+    : QMainWindow(parent), ui(new Ui::NavigationWindow) {
     ui->setupUi(this);
 
-    // Connect each button click to the respective slot
+    // Connect buttons to their respective slots if not set up in the .ui file
     connect(ui->milestoneButton, &QPushButton::clicked, this, &NavigationWindow::on_milestoneButton_clicked);
     connect(ui->recommendationButton, &QPushButton::clicked, this, &NavigationWindow::on_recommendationButton_clicked);
     connect(ui->guidanceButton, &QPushButton::clicked, this, &NavigationWindow::on_guidanceButton_clicked);
 }
 
-NavigationWindow::~NavigationWindow()
-{
+NavigationWindow::~NavigationWindow() {
     delete ui;
 }
 
-void NavigationWindow::setStudentName(const QString &studentName)
-{
-    ui->studentNameLabel->setText("Welcome, " + studentName);  // Ensure `studentNameLabel` exists in the UI
+void NavigationWindow::setStudentDetails(const QString &name, const QString &gpa, const QString &semester) {
+    ui->studentNameLabel->setText(name);
+    ui->gpaLabel->setText(gpa);
+    ui->semesterLabel->setText(semester);
 }
 
-// Show Milestone Window
-void NavigationWindow::on_milestoneButton_clicked()
-{
-    qDebug() << "Milestone button clicked!";
-
-    MilestoneWindow *milestoneWindow = new MilestoneWindow(this);
-    milestoneWindow->show();  // Show the Milestone Window
-
-    this->show();  // Hide the current Navigation Window
+// Slot: Milestone button clicked
+void NavigationWindow::on_milestoneButton_clicked() {
+    QMessageBox::information(this, "Milestone", "Milestone button clicked!");
 }
 
-// Show Recommendation Window
-void NavigationWindow::on_recommendationButton_clicked()
-{
-    qDebug() << "Recommendation button clicked!";
-
-    RecommendationWindow *recommendationWindow = new RecommendationWindow(this);
-    recommendationWindow->show();  // Show the Recommendation Window
-
-    this->show();  // Hide the current Navigation Window
+// Slot: Recommendation button clicked
+void NavigationWindow::on_recommendationButton_clicked() {
+    QMessageBox::information(this, "Recommendation", "Recommendation button clicked!");
 }
 
-// Show Guidance Window
-void NavigationWindow::on_guidanceButton_clicked()
-{
-    qDebug() << "Guidance button clicked!";
-
-    GuidanceWindow *guidanceWindow = new GuidanceWindow(this);
-    guidanceWindow->show();  // Show the Guidance Window
-
-    this->show();  // Hide the current Navigation Window
+// Slot: Guidance button clicked
+void NavigationWindow::on_guidanceButton_clicked() {
+    QMessageBox::information(this, "Guidance", "Guidance button clicked!");
 }

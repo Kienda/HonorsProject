@@ -5,12 +5,9 @@
 #include <QJsonObject>
 
 Student::Student(const QString &name, const QString &email, int id, const QString &major, double gpa, int semester)
-    : User(name, email, id), m_major(major), m_gpa(gpa), m_semester(semester)
-{
-}
+    : User(name, email, id), m_major(major), m_gpa(gpa), m_semester(semester) {}
 
-void Student::saveToJson(const QString &filename) const
-{
+void Student::saveToJson(const QString &filename) const {
     QFile file(filename);
     QJsonArray studentsArray;
 
@@ -39,8 +36,7 @@ void Student::saveToJson(const QString &filename) const
     file.close();
 }
 
-QString Student::validateLogin(const QString &email, const QString &id, const QString &filename)
-{
+StudentInfo Student::validateLogin(const QString &email, const QString &id, const QString &filename) {
     QFile file(filename);
 
     if (file.open(QIODevice::ReadOnly)) {
@@ -53,11 +49,15 @@ QString Student::validateLogin(const QString &email, const QString &id, const QS
             for (const QJsonValue &value : studentsArray) {
                 QJsonObject obj = value.toObject();
                 if (obj["email"].toString() == email && obj["id"].toString() == id) {
-                    return obj["name"].toString(); // Return name if found
+                    StudentInfo info;
+                    info.name = obj["name"].toString();
+                    info.gpa = QString::number(obj["gpa"].toDouble(), 'f', 2); // Format GPA to 2 decimal places
+                    info.semester = QString::number(obj["semester"].toInt());
+                    return info;
                 }
             }
         }
     }
 
-    return ""; // Return empty string if login fails
+    return {}; // Return an empty struct if not found
 }

@@ -1,6 +1,7 @@
 #include "milestonewindow.h"
 #include "ui_milestonewindow.h"
 
+
 MilestoneWindow::MilestoneWindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MilestoneWindow)
@@ -12,3 +13,5 @@ MilestoneWindow::~MilestoneWindow()
 {
     delete ui;
 }
+
+

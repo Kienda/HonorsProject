@@ -1,0 +1,15 @@
+# ninja log v6
+8	1354	7572256694297771	studentSuccessUpdate_autogen/timestamp	c5581527515e0dea
+8	1354	7572256694297771	studentSuccessUpdate_autogen/mocs_compilation.cpp	c5581527515e0dea
+8	1354	7572256694297771	E:/College/Fall24/CSC211H/HonnorProject/studentSuccessUpdate/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/timestamp	c5581527515e0dea
+8	1354	7572256694297771	E:/College/Fall24/CSC211H/HonnorProject/studentSuccessUpdate/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/mocs_compilation.cpp	c5581527515e0dea
+1601	3482	7572256697803082	CMakeFiles/studentSuccessUpdate.dir/user.cpp.obj	96ba4156b3013e0b
+1406	3609	7572256695855472	CMakeFiles/studentSuccessUpdate.dir/main.cpp.obj	d72f126e0265b33b
+1358	3642	7572256695371156	CMakeFiles/studentSuccessUpdate.dir/studentSuccessUpdate_autogen/mocs_compilation.cpp.obj	1e342a007dca101e
+1551	4329	7572256697296696	CMakeFiles/studentSuccessUpdate.dir/student.cpp.obj	f9fdeb2667846ab0
+1772	4425	7572256699510449	CMakeFiles/studentSuccessUpdate.dir/milestoneWindow.cpp.obj	f2febece41bc62e1
+1701	4435	7572256698799919	CMakeFiles/studentSuccessUpdate.dir/navigationwindow.cpp.obj	ed3d2d60f8063d67
+1953	4452	7572256701325563	CMakeFiles/studentSuccessUpdate.dir/guidancewindow.cpp.obj	f26a6b586dc202c0
+1826	4482	7572256700051051	CMakeFiles/studentSuccessUpdate.dir/recommendationwindow.cpp.obj	30237cb37aa480e1
+1491	4653	7572256696701121	CMakeFiles/studentSuccessUpdate.dir/mainwindow.cpp.obj	f8f2f83163e69220
+4653	5106	7572256728318979	studentSuccessUpdate.exe	6626f191f034eee5

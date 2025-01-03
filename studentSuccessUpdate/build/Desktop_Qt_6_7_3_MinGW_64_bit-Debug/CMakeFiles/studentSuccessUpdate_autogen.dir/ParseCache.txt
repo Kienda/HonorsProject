@@ -2477,7 +2477,7 @@ E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestoneWind
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/studentSuccessUpdate_autogen/moc_predefs.h
- mdp:E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestonewindow.h
+ mdp:E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/milestoneWindow.h
 E:/College/Fall24/HonorProjects/HonorsProject/studentSuccessUpdate/guidanceWindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.7.3/mingw_64/include/QtCore/q20functional.h
