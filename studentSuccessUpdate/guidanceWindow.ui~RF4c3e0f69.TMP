@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GuidanceWindow</class>
+ <widget class="QWidget" name="GuidanceWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>709</width>
+    <height>469</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>70</y>
+     <width>511</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Learning Tips:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>319</y>
+     <width>641</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Study Tips:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>10</y>
+     <width>511</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Guidance</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>100</y>
+     <width>641</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string> 
+ Practice Active Recall 
+Test yourself on key concepts instead of passively re-reading notes. 
+Example: After studying a topic, close your book and try to explain it in your own words. 
+Use Spaced Repetition 
+ 
+Review material at gradually increasing intervals to improve long-term memory retention. 
+Example: Use flashcards or apps like Anki to space out your study sessions effectively. 
+Learn by Teaching 
+ 
+Explain topics to others as if you’re teaching; it reinforces your understanding. 
+Example: Form a study group and take turns teaching each other different topic</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>350</y>
+     <width>651</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>Create a Dedicated Study Schedule 
+ 
+Set specific times and durations for studying each day to build a habit. 
+Example: Study math from 3–4 PM and take a 10-minute break before moving to another subject. 
+Minimize Distractions</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

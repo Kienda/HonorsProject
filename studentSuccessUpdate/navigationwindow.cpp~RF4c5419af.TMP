@@ -1,0 +1,54 @@
+#include <QWidget>
+#include "navigationwindow.h"
+#include "ui_navigationwindow.h"
+
+NavigationWindow::NavigationWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::NavigationWindow) {
+    ui->setupUi(this);
+
+    // Add a welcome page to the QStackedWidget
+    QWidget *welcomePage = new QWidget(this);
+    ui->stackedWidget->addWidget(welcomePage);
+
+    // Add a milestone page to the QStackedWidget
+    QWidget *milestonePage = new QWidget(this);
+    // Setup milestonePage layout and content here, e.g., labels, tables, etc.
+    ui->stackedWidget->addWidget(milestonePage);
+
+    // Optionally add other pages (recommendation, guidance, etc.)
+    QWidget *recommendationPage = new QWidget(this);
+    ui->stackedWidget->addWidget(recommendationPage);
+
+    QWidget *guidancePage = new QWidget(this);
+    ui->stackedWidget->addWidget(guidancePage);
+
+    // Default to showing the welcome page
+    ui->stackedWidget->setCurrentIndex(0);
+
+    // Connect buttons to their respective slots
+    connect(ui->milestoneButton, &QPushButton::clicked, this, &NavigationWindow::on_milestoneButton_clicked);
+    connect(ui->recommendationButton, &QPushButton::clicked, this, &NavigationWindow::on_recommendationButton_clicked);
+    connect(ui->guidanceButton, &QPushButton::clicked, this, &NavigationWindow::on_guidanceButton_clicked);
+}
+
+NavigationWindow::~NavigationWindow() {
+    delete ui;
+}
+
+void NavigationWindow::setStudentDetails(const QString &name, const QString &gpa, const QString &semester) {
+    ui->studentNameLabel->setText("Welcome " + name);
+    ui->gpaLabel->setText("GPA: " + gpa);
+    ui->semesterLabel->setText("Semester: " + semester);
+}
+
+void NavigationWindow::on_milestoneButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(1); // Navigate to milestone page
+}
+
+void NavigationWindow::on_recommendationButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(2); // Navigate to recommendation page
+}
+
+void NavigationWindow::on_guidanceButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(3); // Navigate to guidance page
+}

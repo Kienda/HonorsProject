@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +27,9 @@ public:
     QPushButton *milestoneButton;
     QLabel *gpaLabel;
     QLabel *semesterLabel;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QWidget *page_2;
 
     void setupUi(QWidget *NavigationWindow)
     {
@@ -36,40 +40,49 @@ public:
         NavigationWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 247, 255);"));
         recommendationButton = new QPushButton(NavigationWindow);
         recommendationButton->setObjectName("recommendationButton");
-        recommendationButton->setGeometry(QRect(280, 240, 251, 71));
+        recommendationButton->setGeometry(QRect(10, 180, 251, 71));
         recommendationButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
         guidanceButton = new QPushButton(NavigationWindow);
         guidanceButton->setObjectName("guidanceButton");
-        guidanceButton->setGeometry(QRect(540, 240, 251, 71));
+        guidanceButton->setGeometry(QRect(10, 260, 251, 71));
         guidanceButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
         studentNameLabel = new QLabel(NavigationWindow);
         studentNameLabel->setObjectName("studentNameLabel");
-        studentNameLabel->setGeometry(QRect(40, 20, 591, 31));
+        studentNameLabel->setGeometry(QRect(20, 10, 331, 31));
         studentNameLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
 "font: 700 14pt \"Segoe UI\";"));
         milestoneButton = new QPushButton(NavigationWindow);
         milestoneButton->setObjectName("milestoneButton");
-        milestoneButton->setGeometry(QRect(20, 240, 251, 71));
+        milestoneButton->setGeometry(QRect(10, 100, 251, 71));
         milestoneButton->setStyleSheet(QString::fromUtf8("font: 700 14pt \"Segoe UI\";\n"
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 0, 255);\n"
 "border-radius: 5px;"));
         gpaLabel = new QLabel(NavigationWindow);
         gpaLabel->setObjectName("gpaLabel");
-        gpaLabel->setGeometry(QRect(30, 80, 591, 31));
+        gpaLabel->setGeometry(QRect(390, 20, 181, 31));
         gpaLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
 "font: 700 14pt \"Segoe UI\";"));
         semesterLabel = new QLabel(NavigationWindow);
         semesterLabel->setObjectName("semesterLabel");
-        semesterLabel->setGeometry(QRect(20, 140, 591, 31));
+        semesterLabel->setGeometry(QRect(600, 20, 191, 31));
         semesterLabel->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 255);\n"
 "font: 700 14pt \"Segoe UI\";"));
+        stackedWidget = new QStackedWidget(NavigationWindow);
+        stackedWidget->setObjectName("stackedWidget");
+        stackedWidget->setGeometry(QRect(299, 79, 531, 411));
+        page = new QWidget();
+        page->setObjectName("page");
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName("page_2");
+        stackedWidget->addWidget(page_2);
 
         retranslateUi(NavigationWindow);
 

@@ -1,0 +1,112 @@
+// navigationwindow.cpp
+#include "navigationwindow.h"
+#include "ui_navigationwindow.h"
+#include <QVBoxLayout>
+
+
+NavigationWindow::NavigationWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::NavigationWindow) {
+    ui->setupUi(this);
+
+    // Add a welcome page to the QStackedWidget
+    QWidget *welcomePage = new QWidget(this);
+    ui->stackedWidget->addWidget(welcomePage);
+
+    // Add a milestone page to the QStackedWidget
+    QWidget *milestonePage = new QWidget(this);
+    ui->stackedWidget->addWidget(milestonePage);
+
+    // Add a recommendation page to the QStackedWidget
+    QWidget *recommendationPage = new QWidget(this);
+    ui->stackedWidget->addWidget(recommendationPage);
+
+    // Add a guidance page to the QStackedWidget
+    QWidget *guidancePage = new QWidget(this);
+    ui->stackedWidget->addWidget(guidancePage);
+
+    // Default to showing the welcome page
+    ui->stackedWidget->setCurrentIndex(0);
+
+    // Connect buttons to their respective slots
+    connect(ui->milestoneButton, &QPushButton::clicked, this, &NavigationWindow::on_milestoneButton_clicked);
+    connect(ui->recommendationButton, &QPushButton::clicked, this, &NavigationWindow::on_recommendationButton_clicked);
+    connect(ui->guidanceButton, &QPushButton::clicked, this, &NavigationWindow::on_guidanceButton_clicked);
+}
+
+NavigationWindow::~NavigationWindow() {
+    delete ui;
+}
+
+void NavigationWindow::setStudentDetails(const QString &name, const QString &gpa, const QString &semester, const QString &major) {
+    ui->studentNameLabel->setText("Welcome " + name);
+    ui->gpaLabel->setText("GPA: " + gpa);
+    ui->semesterLabel->setText("Semester: " + semester);
+    ui->majorLabel->setText("Major: " + major);
+
+    generateGuidancePage(gpa, semester, major);
+}
+
+void NavigationWindow::generateGuidancePage(const QString &gpa, const QString &semester, const QString &major) {
+    QLayout *layout = ui->guidancePage->layout();
+    if (!layout) {
+        layout = new QVBoxLayout(ui->guidancePage);
+    } else {
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+    }
+
+    QLabel *titleLabel = new QLabel("Personalized Guidance");
+    titleLabel->setStyleSheet("font-weight: bold; font-size: 16px;");
+
+    QLabel *gpaLabel = new QLabel("Your GPA: " + gpa);
+    QLabel *semesterLabel = new QLabel("Current Semester: " + semester);
+    QLabel *majorLabel = new QLabel("Your Major: " + major);
+
+    QString guidanceText = generateGuidance(gpa, semester, major);
+    QLabel *guidanceLabel = new QLabel(guidanceText);
+    guidanceLabel->setWordWrap(true);
+
+    layout->addWidget(titleLabel);
+    layout->addWidget(gpaLabel);
+    layout->addWidget(semesterLabel);
+    layout->addWidget(majorLabel);
+    layout->addWidget(guidanceLabel);
+    layout->addStretch();
+}
+
+QString NavigationWindow::generateGuidance(const QString &gpa, const QString &semester, const QString &major) {
+    double gpaValue = gpa.toDouble();
+    int semesterValue = semester.toInt();
+    QString guidance;
+
+    if (gpaValue >= 3.5) {
+        guidance = "You are performing excellently! Consider applying for honors programs or internships in " + major + ".";
+    } else if (gpaValue >= 3.0) {
+        guidance = "Great job! Keep working hard and explore opportunities like workshops and seminars related to " + major + ".";
+    } else {
+        guidance = "Focus on improving your GPA. Seek tutoring services or guidance counseling to enhance your performance.";
+    }
+
+    if (semesterValue <= 2) {
+        guidance += "\nAs you're in your early semesters, focus on building a strong foundation in core subjects.";
+    } else if (semesterValue >= 3) {
+        guidance += "\nConsider preparing for your capstone project or exploring career opportunities in " + major + ".";
+    }
+
+    return guidance;
+}
+
+void NavigationWindow::on_milestoneButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void NavigationWindow::on_recommendationButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void NavigationWindow::on_guidanceButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(3);
+}

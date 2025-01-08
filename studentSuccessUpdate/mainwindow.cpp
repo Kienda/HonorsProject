@@ -47,7 +47,7 @@ void MainWindow::on_login_clicked() {
         QMessageBox::information(this, "Welcome", "Login successful! Welcome, " + studentInfo.name + ".");
 
         navWindow = new NavigationWindow(this);
-        navWindow->setStudentDetails(studentInfo.name, studentInfo.gpa, studentInfo.semester);
+        navWindow->setStudentDetails(studentInfo.name, studentInfo.gpa, studentInfo.semester, studentInfo.major);
         navWindow->show();
         this->hide();
     } catch (const std::exception &e) {

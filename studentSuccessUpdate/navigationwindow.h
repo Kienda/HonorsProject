@@ -14,7 +14,13 @@ public:
     explicit NavigationWindow(QWidget *parent = nullptr);
     ~NavigationWindow();
 
-    void setStudentDetails(const QString &name, const QString &gpa, const QString &semester);
+    void setStudentDetails(const QString &name, const QString &gpa, const QString &semester, const QString &major);
+
+private:
+    void generateGuidancePageContent(const QString &gpa, const QString &semester, const QString &major);
+    QString generateGuidanceText(const QString &gpa, const QString &semester, const QString &major);
+    void updateMilestonePage(const QString &major, const QString &gpa);
+    void updateRecommendationPage(const QString &major, const QString &gpa);
 
 private slots:
     void on_milestoneButton_clicked();

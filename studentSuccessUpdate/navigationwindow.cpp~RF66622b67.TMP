@@ -1,0 +1,321 @@
+#include "navigationwindow.h"
+#include "ui_navigationwindow.h"
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QDesktopServices>
+#include <QUrl>
+
+NavigationWindow::NavigationWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::NavigationWindow) {
+    ui->setupUi(this);
+
+    // Add pages to the QStackedWidget
+    ui->stackedWidget->addWidget(new QWidget(this)); // Welcome Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Milestone Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Recommendation Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Guidance Page
+
+    // Default to showing the welcome page
+    ui->stackedWidget->setCurrentIndex(0);
+
+    // Connect buttons to slots
+    connect(ui->milestoneButton, &QPushButton::clicked, this, &NavigationWindow::on_milestoneButton_clicked);
+    connect(ui->recommendationButton, &QPushButton::clicked, this, &NavigationWindow::on_recommendationButton_clicked);
+    connect(ui->guidanceButton, &QPushButton::clicked, this, &NavigationWindow::on_guidanceButton_clicked);
+
+    // Initialize the milestone page with a default major and GPA
+
+}
+
+NavigationWindow::~NavigationWindow() {
+    delete ui;
+}
+
+void NavigationWindow::setStudentDetails(const QString &name, const QString &gpa, const QString &semester, const QString &major) {
+    ui->studentNameLabel->setText("Welcome " + name);
+    ui->gpaLabel->setText("<b> GPA: </b>" + gpa);
+    ui->semesterLabel->setText("<b> Semester: </b>" + semester);
+    ui->majorLabel->setText("<b>Major: </b>" + major);
+
+    generateGuidancePageContent(gpa, semester, major);
+
+    updateMilestonePage(major, gpa);
+    updateRecommendationPage(major, gpa);
+}
+
+void NavigationWindow::generateGuidancePageContent(const QString &gpa, const QString &semester, const QString &major) {
+    // Retrieve the guidance page and layout
+    QWidget *guidancePage = ui->stackedWidget->widget(3);  // Assuming the guidance page is at index 3
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(guidancePage->layout());
+
+    // If layout is not found, create a new one
+    if (!layout) {
+        layout = new QVBoxLayout(guidancePage);
+    } else {
+        // Clear the existing layout items
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+    }
+
+    // Generate the guidance text based on input parameters
+    QString guidanceText = generateGuidanceText(gpa, semester, major);
+    QLabel *guidanceLabel = new QLabel(guidanceText);
+    guidanceLabel->setWordWrap(true);  // Make the label's text wrap to fit the layout
+
+    // Set the alignment of the label to top-left
+    guidanceLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+    // Add the guidance label to the layout
+    layout->addWidget(guidanceLabel);
+
+    // Add the additional content programmatically (Learning Tips and Study Tips)
+    QLabel *learningTitleLabel = new QLabel("Learning Tips:");
+    learningTitleLabel->setStyleSheet("color: rgb(0, 0, 255); font: 700 14pt 'Segoe UI';");
+    layout->addWidget(learningTitleLabel);
+
+    QLabel *learningContentLabel = new QLabel(
+        "Practice Active Recall\n"
+        "Test yourself on key concepts instead of passively re-reading notes.\n"
+        "Example: After studying a topic, close your book and try to explain it in your own words.\n\n"
+        "Use Spaced Repetition\n"
+        "Review material at gradually increasing intervals to improve long-term memory retention.\n"
+        "Example: Use flashcards or apps like Anki to space out your study sessions effectively.\n\n"
+        "Learn by Teaching\n"
+        "Explain topics to others as if you’re teaching; it reinforces your understanding.\n"
+        "Example: Form a study group and take turns teaching each other different topics."
+        );
+    learningContentLabel->setWordWrap(true);
+    learningContentLabel->setStyleSheet("font: 10pt 'Segoe UI'; color: rgb(0, 0, 0);");
+    layout->addWidget(learningContentLabel);
+
+    QLabel *studyTitleLabel = new QLabel("Study Tips:");
+    studyTitleLabel->setStyleSheet("color: rgb(0, 0, 255); font: 700 14pt 'Segoe UI';");
+    layout->addWidget(studyTitleLabel);
+
+    QLabel *studyContentLabel = new QLabel(
+        "Create a Dedicated Study Schedule\n"
+        "Set specific times and durations for studying each day to build a habit.\n"
+        "Example: Study math from 3–4 PM and take a 10-minute break before moving to another subject.\n\n"
+        "Minimize Distractions"
+        );
+    studyContentLabel->setWordWrap(true);
+    studyContentLabel->setStyleSheet("font: 10pt 'Segoe UI'; color: rgb(0, 0, 0);");
+    layout->addWidget(studyContentLabel);
+}
+
+QString NavigationWindow::generateGuidanceText(const QString &gpa, const QString &semester, const QString &major) {
+    double gpaValue = gpa.toDouble();
+    int semesterValue = semester.toInt();
+    QString guidance;
+
+    if (gpaValue >= 3.5) {
+        guidance = "You are performing excellently! Consider applying for honors programs or internships in <b>" +  major + "</b>.";
+    } else if (gpaValue >= 3.0) {
+        guidance = "Great job! Keep working hard and explore opportunities like workshops and seminars related to <b>" + major + "</b>.";
+    } else {
+        guidance = "Focus on improving your GPA. Seek tutoring services or guidance counseling to enhance your performance.";
+    }
+
+    if (semesterValue <= 2) {
+        guidance += "\nAs you're in your early semesters, focus on building a strong foundation in core subjects.";
+    } else {
+        guidance += "\nConsider preparing for your capstone project or exploring career opportunities in <b>" +  major + "</b>.";
+    }
+
+    return guidance;
+}
+
+// Function to dynamically populate the milestone page based on major and GPA
+void NavigationWindow::updateMilestonePage(const QString &major, const QString &gpa)
+{
+    // Clear the existing content of the milestone page
+    QWidget *milestonePage = ui->stackedWidget->widget(1);
+    QLayout *layout = milestonePage->layout();
+    if (layout) {
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+        delete layout;
+    }
+
+    // Create a new layout for the milestone page
+    QVBoxLayout *milestoneLayout = new QVBoxLayout(milestonePage);
+
+    // Create a QLabel for each section based on the major
+    QString scholarship, financialAid, fellowship, internship;
+
+    if (major == "Computer Science") {
+        scholarship = "<b>Scholarship:</b> <a href='https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/' target='_blank'>Jack Kent Cooke Scholarship</a> – Received for demonstrating outstanding academic performance and leadership potential.";
+        financialAid = "<b>Financial Aid:</b> <a href='https://www.hesc.ny.gov/pay-for-college/apply-for-financial-aid/nys-tap.html' target='_blank'>TAP (Tuition Assistance Program)</a> – Received for academic expenses while pursuing the Computer Science major.";
+        fellowship = "<b>Fellowship:</b> <a href='https://www.jumpstartadvisorygroup.com/' target='_blank'>JumpStart</a> – Currently in progress, focusing on software engineering fundamentals and career readiness.";
+        internship = "<b>Internship:</b> <a href='https://careers.jpmorgan.com/us/en/about-us' target='_blank'>JPMorgan Chase Internship</a> – Successfully completed, gaining hands-on experience in software development and financial technology.";
+    } else if (major == "Accounting") {
+        scholarship = "<b>Scholarship:</b> <a href='https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/' target='_blank'>Jack Kent Cooke Scholarship</a> – Awarded for excelling in financial analysis and business ethics.";
+        financialAid = "<b>Financial Aid:</b> <a href='https://www.hesc.ny.gov/pay-for-college/apply-for-financial-aid/nys-tap.html' target='_blank'>TAP</a> – Received, providing critical support for tuition and coursework materials.";
+        fellowship = "<b>Fellowship:</b> <a href='https://www.jumpstartadvisorygroup.com/' target='_blank'>JumpStart</a> – In progress, exploring opportunities in financial consulting and auditing.";
+        internship = "<b>Internship:</b> <a href='https://careers.jpmorgan.com/us/en/about-us' target='_blank'>JPMorgan Chase Internship</a> – Completed with experience in corporate finance and risk management.";
+    } else if (major == "Nursing") {
+        scholarship = "<b>Scholarship:</b> <a href='https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/' target='_blank'>Jack Kent Cooke Scholarship</a> – Granted for commitment to healthcare and academic excellence in nursing studies.";
+        financialAid = "<b>Financial Aid:</b> <a href='https://www.hesc.ny.gov/pay-for-college/apply-for-financial-aid/nys-tap.html' target='_blank'>TAP</a> – Received for assistance with clinical training and related coursework.";
+        fellowship = "<b>Fellowship:</b> <a href='https://www.jumpstartadvisorygroup.com/' target='_blank'>JumpStart</a> – In progress, focusing on patient care innovation and leadership in healthcare.";
+        internship = "<b>Internship:</b> <a href='https://careers.jpmorgan.com/us/en/about-us' target='_blank'>JPMorgan Chase Internship</a> – Completed, contributing to health and wellness initiatives within corporate settings.";
+    } else if (major == "Biology") {
+        scholarship = "<b>Scholarship:</b> <a href='https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/' target='_blank'>Jack Kent Cooke Scholarship</a> – Received for achievements in life sciences and commitment to research.";
+        financialAid = "<b>Financial Aid:</b> <a href='https://www.hesc.ny.gov/pay-for-college/apply-for-financial-aid/nys-tap.html' target='_blank'>TAP</a> – Received to support expenses for lab-based coursework and research projects.";
+        fellowship = "<b>Fellowship:</b> <a href='https://www.jumpstartadvisorygroup.com/' target='_blank'>JumpStart</a> – Currently in progress, emphasizing biotechnology and research skill development.";
+        internship = "<b>Internship:</b> <a href='https://careers.jpmorgan.com/us/en/about-us' target='_blank'>JPMorgan Chase Internship</a> – Completed, focusing on biological data analysis for environmental initiatives.";
+    } else if (major == "Math") {
+        scholarship = "<b>Scholarship:</b> <a href='https://www.jkcf.org/our-scholarships/undergraduate-transfer-scholarship/' target='_blank'>Jack Kent Cooke Scholarship</a> – Received for excellence in mathematics and potential for contribution to STEM fields.";
+        financialAid = "<b>Financial Aid:</b> <a href='https://www.hesc.ny.gov/pay-for-college/apply-for-financial-aid/nys-tap.html' target='_blank'>TAP</a> – Awarded to cover tuition and resources for advanced mathematics courses.";
+        fellowship = "<b>Fellowship:</b> <a href='https://www.jumpstartadvisorygroup.com/' target='_blank'>JumpStart</a> – In progress, targeting data science and applications of mathematics in technology.";
+        internship = "<b>Internship:</b> <a href='https://careers.jpmorgan.com/us/en/about-us' target='_blank'>JPMorgan Chase Internship</a> – Completed, with focus on quantitative analysis and financial modeling.";
+    }
+
+
+    // Add other majors similarly...
+
+    // Adjust the spacing for the layout
+    milestoneLayout->setSpacing(1); // Reduce space between labels
+
+    // Define a stylesheet for labels
+    QString labelStyle = "font-size: 16px; font-weight: regular;";
+
+    // Create and configure each QLabel
+    QLabel *scholarshipLabel = new QLabel(scholarship, milestonePage);
+    scholarshipLabel->setStyleSheet(labelStyle);
+    scholarshipLabel->setWordWrap(true); // Enable word wrapping
+    milestoneLayout->addWidget(scholarshipLabel);
+
+    QLabel *financialAidLabel = new QLabel(financialAid, milestonePage);
+    financialAidLabel->setStyleSheet(labelStyle);
+    financialAidLabel->setWordWrap(true); // Enable word wrapping
+    milestoneLayout->addWidget(financialAidLabel);
+
+    QLabel *fellowshipLabel = new QLabel(fellowship, milestonePage);
+    fellowshipLabel->setStyleSheet(labelStyle);
+    fellowshipLabel->setWordWrap(true); // Enable word wrapping
+    milestoneLayout->addWidget(fellowshipLabel);
+
+    QLabel *internshipLabel = new QLabel(internship, milestonePage);
+    internshipLabel->setStyleSheet(labelStyle);
+    internshipLabel->setWordWrap(true); // Enable word wrapping
+    milestoneLayout->addWidget(internshipLabel);
+
+    // Set the layout to the milestone page
+    milestonePage->setLayout(milestoneLayout);
+    connect(ui->yourTextLabel, &QLabel::linkActivated, [](const QString &link) {
+    QDesktopServices::openUrl(QUrl(link)});
+
+}
+
+void NavigationWindow::updateRecommendationPage(const QString &major, const QString &gpa) {
+    // Clear the existing content of the recommendation page
+    QWidget *recommendationPage = ui->stackedWidget->widget(2);  // Assuming the recommendation page is at index 2
+    QLayout *layout = recommendationPage->layout();
+
+    // Only clear widgets from the layout without deleting it
+    if (layout) {
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();  // Delete the widget but not the layout itself
+            delete item;            // Delete the layout item
+        }
+    }
+
+    // Create a new layout for the recommendation page
+    QVBoxLayout *recommendationLayout = new QVBoxLayout(recommendationPage);
+
+    // Define variables for dynamic content
+    QString scholarships, internships, fellowships, clubs;
+
+    // Populate content based on the major
+    if (major == "Computer Science") {
+        scholarships = "Google Lime Scholarship – For students with strong leadership and technical skills.\n"
+                       "Women Techmakers Scholars Program – Encourages diversity in technology.";
+        internships = "Microsoft Explore Internship – Designed for early college students.\n"
+                      "Amazon Future Engineer Internship – Focused on tech and innovation.";
+        fellowships = "CodePath Fellowship – Offers advanced programming preparation.\n"
+                      "OpenAI Residency – For those interested in AI and ML.";
+        clubs = "Association for Computing Machinery (ACM).\n"
+                "Women in Computer Science (WiCS).";
+    } else if (major == "Accounting") {
+        scholarships = "AICPA Scholarships – For students pursuing accounting.\n"
+                       "Ritchie-Jennings Memorial Scholarship – For forensic accounting.";
+        internships = "PwC Start Internship – Foundational experience in accounting.\n"
+                      "KPMG Internship Program – Insights into audit, tax, and advisory.";
+        fellowships = "NABA Fellowship – Tailored for underrepresented students.\n"
+                      "AICPA Leadership Fellows Program.";
+        clubs = "Beta Alpha Psi – Honors accounting, finance, and IS students.\n"
+                "NABA Student Chapters – Networking for accounting students.";
+    } else if (major == "Nursing") {
+        scholarships = "Tylenol Future Care Scholarship – For healthcare-focused students.\n"
+                       "NBNA Scholarship – For excelling nursing students.";
+        internships = "Mayo Clinic Summer Nursing Internship – Clinical experience.\n"
+                      "Cedars-Sinai Nursing Internships – Exposure to patient care.";
+        fellowships = "HRSA Nurse Corps Fellowship – Supports underserved communities.\n"
+                      "Sigma Theta Tau Fellowship – Leadership in nursing.";
+        clubs = "American Nurses Association (ANA).\n"
+                "Student Nurses Association (SNA).";
+    } else if (major == "Biology") {
+        scholarships = "Barry Goldwater Scholarship – For natural science research careers.\n"
+                       "NIH Undergraduate Scholarship – For biomedical research.";
+        internships = "NIH Summer Internship Program (SIP) – Lab-based research.\n"
+                      "HHMI Summer Program – Focused on life sciences research.";
+        fellowships = "Amgen Scholars Program – Biomedical science leadership development.\n"
+                      "Scripps Research Fellowships – Advanced research in biology.";
+        clubs = "American Society for Biochemistry and Molecular Biology (ASBMB).\n"
+                "Beta Beta Beta National Biological Honor Society.";
+    }else if (major == "Math") {
+        scholarships = "National Science Foundation (NSF) Graduate Research Fellowship – For students advancing in STEM fields.\n"
+                       "Society for Industrial and Applied Mathematics (SIAM) Scholarship – For students excelling in applied mathematics.";
+        internships = "National Security Agency (NSA) Math Summer Internship – For students interested in cryptography and data analysis.\n"
+                      "Quantitative Analysis Internship at Citadel – Focuses on mathematical modeling and financial applications.";
+        fellowships = "Mathematical Sciences Research Institute (MSRI) Fellowship – Supports advanced mathematical research.\n"
+                      "DIMACS REU Program – For undergraduates in discrete mathematics and computer science.";
+        clubs = "Mathematics Association of America (MAA) – Encourages participation in math competitions and conferences.\n"
+                "Pi Mu Epsilon – An honor society for recognizing excellence in mathematics.";
+    }
+
+    // Create and configure each QLabel for recommendations
+    QString labelStyle = "font-size: 16px; font-weight: regular;";
+    QLabel *scholarshipsLabel = new QLabel("<b>Scholarships:</b>\n" + scholarships, recommendationPage);
+    scholarshipsLabel->setStyleSheet(labelStyle);
+    scholarshipsLabel->setWordWrap(true);
+    recommendationLayout->addWidget(scholarshipsLabel);
+
+    QLabel *internshipsLabel = new QLabel("<b>Internships:</b>\n" + internships, recommendationPage);
+    internshipsLabel->setStyleSheet(labelStyle);
+    internshipsLabel->setWordWrap(true);
+    recommendationLayout->addWidget(internshipsLabel);
+
+    QLabel *fellowshipsLabel = new QLabel("<b>Fellowships:</b>\n" + fellowships, recommendationPage);
+    fellowshipsLabel->setStyleSheet(labelStyle);
+    fellowshipsLabel->setWordWrap(true);
+    recommendationLayout->addWidget(fellowshipsLabel);
+
+    QLabel *clubsLabel = new QLabel("<b>Clubs and Organizations:</b>\n" + clubs, recommendationPage);
+    clubsLabel->setStyleSheet(labelStyle);
+    clubsLabel->setWordWrap(true);
+    recommendationLayout->addWidget(clubsLabel);
+
+    // Set the layout to the recommendation page
+    recommendationPage->setLayout(recommendationLayout);
+}
+
+
+void NavigationWindow::on_milestoneButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void NavigationWindow::on_recommendationButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void NavigationWindow::on_guidanceButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(3);
+}

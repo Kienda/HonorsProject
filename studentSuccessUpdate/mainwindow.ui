@@ -238,6 +238,28 @@ border-width:0px;
 Your Student Journey...</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>390</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 0, 255);
+color: rgb(255, 255, 255);
+font: 900 italic 12pt &quot;Segoe UI&quot;;
+border-radius:10px;
+</string>
+    </property>
+    <property name="text">
+     <string>The majors implemented:
+Computer Science Accounting 
+Nursing Biology Math</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

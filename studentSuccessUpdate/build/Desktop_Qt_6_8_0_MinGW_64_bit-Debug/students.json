@@ -1,0 +1,66 @@
+[
+    {
+        "email": "studentsuccess1@gmail.com",
+        "gpa": 4,
+        "id": "242424",
+        "major": "Computer science",
+        "name": "Abdoulaye Diallo",
+        "semester": 2
+    },
+    {
+        "email": "studentsuccess2@gmail.com",
+        "gpa": 3.5,
+        "id": "252525",
+        "major": "Accounting",
+        "name": "Buba",
+        "semester": 3
+    },
+    {
+        "email": "studentsuccess3@gmail.com",
+        "gpa": 3.7,
+        "id": "262626",
+        "major": "Math",
+        "name": "Mathew",
+        "semester": 4
+    },
+    {
+        "email": "student1@gmail.com",
+        "gpa": 0,
+        "id": "212121",
+        "major": "Accounting",
+        "name": "David",
+        "semester": 1
+    },
+    {
+        "email": "student2@gmail.com",
+        "gpa": 4,
+        "id": "232323",
+        "major": "Computer Science",
+        "name": "Catherina",
+        "semester": 3
+    },
+    {
+        "email": "student333@gmail.com",
+        "gpa": 4,
+        "id": "1072025",
+        "major": "Nursing",
+        "name": "Julia",
+        "semester": 4
+    },
+    {
+        "email": "student25@gmail.com",
+        "gpa": 3.5,
+        "id": "101010",
+        "major": "Nursing",
+        "name": "Mather",
+        "semester": 3
+    },
+    {
+        "email": "brian.student@gmail.com",
+        "gpa": 3.8,
+        "id": "303030",
+        "major": "Nursing",
+        "name": "Brian",
+        "semester": 3
+    }
+]

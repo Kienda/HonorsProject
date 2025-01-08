@@ -1,0 +1,198 @@
+#include "navigationwindow.h"
+#include "ui_navigationwindow.h"
+#include <QVBoxLayout>
+#include <QLabel>
+
+NavigationWindow::NavigationWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::NavigationWindow) {
+    ui->setupUi(this);
+
+    // Add pages to the QStackedWidget
+    ui->stackedWidget->addWidget(new QWidget(this)); // Welcome Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Milestone Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Recommendation Page
+    ui->stackedWidget->addWidget(new QWidget(this)); // Guidance Page
+
+    // Default to showing the welcome page
+    ui->stackedWidget->setCurrentIndex(0);
+
+    // Connect buttons to slots
+    connect(ui->milestoneButton, &QPushButton::clicked, this, &NavigationWindow::on_milestoneButton_clicked);
+    connect(ui->recommendationButton, &QPushButton::clicked, this, &NavigationWindow::on_recommendationButton_clicked);
+    connect(ui->guidanceButton, &QPushButton::clicked, this, &NavigationWindow::on_guidanceButton_clicked);
+
+    // Initialize the milestone page with a default major and GPA
+    updateMilestonePage("Computer Science", 4.0);
+}
+
+NavigationWindow::~NavigationWindow() {
+    delete ui;
+}
+
+void NavigationWindow::setStudentDetails(const QString &name, const QString &gpa, const QString &semester, const QString &major) {
+    ui->studentNameLabel->setText("Welcome " + name);
+    ui->gpaLabel->setText("<b> GPA: </b>" + gpa);
+    ui->semesterLabel->setText("<b> Semester: </b>" + semester);
+    ui->majorLabel->setText("<b>Major: </b>" + major);
+
+    generateGuidancePageContent(gpa, semester, major);
+}
+
+void NavigationWindow::generateGuidancePageContent(const QString &gpa, const QString &semester, const QString &major) {
+    // Retrieve the guidance page and layout
+    QWidget *guidancePage = ui->stackedWidget->widget(3);  // Assuming the guidance page is at index 3
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(guidancePage->layout());
+
+    // If layout is not found, create a new one
+    if (!layout) {
+        layout = new QVBoxLayout(guidancePage);
+    } else {
+        // Clear the existing layout items
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+    }
+
+    // Generate the guidance text based on input parameters
+    QString guidanceText = generateGuidanceText(gpa, semester, major);
+    QLabel *guidanceLabel = new QLabel(guidanceText);
+    guidanceLabel->setWordWrap(true);  // Make the label's text wrap to fit the layout
+
+    // Set the alignment of the label to top-left
+    guidanceLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+    // Add the guidance label to the layout
+    layout->addWidget(guidanceLabel);
+
+    // Add the additional content programmatically (Learning Tips and Study Tips)
+    QLabel *learningTitleLabel = new QLabel("Learning Tips:");
+    learningTitleLabel->setStyleSheet("color: rgb(0, 0, 255); font: 700 14pt 'Segoe UI';");
+    layout->addWidget(learningTitleLabel);
+
+    QLabel *learningContentLabel = new QLabel(
+        "Practice Active Recall\n"
+        "Test yourself on key concepts instead of passively re-reading notes.\n"
+        "Example: After studying a topic, close your book and try to explain it in your own words.\n\n"
+        "Use Spaced Repetition\n"
+        "Review material at gradually increasing intervals to improve long-term memory retention.\n"
+        "Example: Use flashcards or apps like Anki to space out your study sessions effectively.\n\n"
+        "Learn by Teaching\n"
+        "Explain topics to others as if you’re teaching; it reinforces your understanding.\n"
+        "Example: Form a study group and take turns teaching each other different topics."
+        );
+    learningContentLabel->setWordWrap(true);
+    learningContentLabel->setStyleSheet("font: 10pt 'Segoe UI'; color: rgb(0, 0, 0);");
+    layout->addWidget(learningContentLabel);
+
+    QLabel *studyTitleLabel = new QLabel("Study Tips:");
+    studyTitleLabel->setStyleSheet("color: rgb(0, 0, 255); font: 700 14pt 'Segoe UI';");
+    layout->addWidget(studyTitleLabel);
+
+    QLabel *studyContentLabel = new QLabel(
+        "Create a Dedicated Study Schedule\n"
+        "Set specific times and durations for studying each day to build a habit.\n"
+        "Example: Study math from 3–4 PM and take a 10-minute break before moving to another subject.\n\n"
+        "Minimize Distractions"
+        );
+    studyContentLabel->setWordWrap(true);
+    studyContentLabel->setStyleSheet("font: 10pt 'Segoe UI'; color: rgb(0, 0, 0);");
+    layout->addWidget(studyContentLabel);
+}
+
+QString NavigationWindow::generateGuidanceText(const QString &gpa, const QString &semester, const QString &major) {
+    double gpaValue = gpa.toDouble();
+    int semesterValue = semester.toInt();
+    QString guidance;
+
+    if (gpaValue >= 3.5) {
+        guidance = "You are performing excellently! Consider applying for honors programs or internships in <b>" +  major + "</b>.";
+    } else if (gpaValue >= 3.0) {
+        guidance = "Great job! Keep working hard and explore opportunities like workshops and seminars related to <b>" + major + "</b>.";
+    } else {
+        guidance = "Focus on improving your GPA. Seek tutoring services or guidance counseling to enhance your performance.";
+    }
+
+    if (semesterValue <= 2) {
+        guidance += "\nAs you're in your early semesters, focus on building a strong foundation in core subjects.";
+    } else {
+        guidance += "\nConsider preparing for your capstone project or exploring career opportunities in <b>" +  major + "</b>.";
+    }
+
+    return guidance;
+}
+
+// Function to dynamically populate the milestone page based on major and GPA
+void NavigationWindow::updateMilestonePage(const QString &major, double gpa)
+{
+    // Clear the existing content of the milestone page
+    QWidget *milestonePage = ui->stackedWidget->widget(1);
+    QLayout *layout = milestonePage->layout();
+    if (layout) {
+        QLayoutItem *item;
+        while ((item = layout->takeAt(0)) != nullptr) {
+            delete item->widget();
+            delete item;
+        }
+        delete layout;
+    }
+
+    // Create a new layout for the milestone page
+    QVBoxLayout *milestoneLayout = new QVBoxLayout(milestonePage);
+
+    // Create a QLabel for each section based on the major
+    QString scholarship, financialAid, fellowship, internship;
+
+    if (major == "Computer Science") {
+        scholarship = "<b>Scholarship: </b>Jack Kent Cooke Scholarship – Received \nfor demonstrating outstanding academic performance and leadership potential.";
+        financialAid = "<b>Financial Aid: </b>TAP (Tuition Assistance Program) – Received \nfor academic expenses while pursuing the Computer Science major.";
+        fellowship = "<b>Fellowship: </b>JumpStart – Currently in progress, \nfocusing on software engineering fundamentals and career readiness.";
+        internship = "<b>Internship: </b>JPMorgan Chase Internship – Successfully completed, \ngaining hands-on experience in software development and financial technology.";
+    } else if (major == "<b>Accounting") {
+        scholarship = "<b>Scholarship:</b> Jack Kent Cooke Scholarship \n– Awarded for excelling in financial analysis and business ethics.";
+        financialAid = "<b>Financial Aid:</b> TAP – Received, providing critical support for tuition and coursework materials.";
+        fellowship = "<b>Fellowship: </b>JumpStart – In progress, exploring opportunities in financial consulting and auditing.";
+        internship = "<b>Internship: </b>JPMorgan Chase Internship – Completed with experience in corporate finance and risk management.";
+    }
+    // Add other majors similarly...
+
+    // Add labels for each piece of information
+    // milestoneLayout->addWidget(new QLabel("<b>Major:</b> " + major, milestonePage));
+    // milestoneLayout->addWidget(new QLabel("<b>GPA:</b> " + QString::number(gpa, 'f', 2), milestonePage));
+    // Create the font size and spacing adjustments
+
+    milestoneLayout->setSpacing(5);
+    QString labelStyle = "font-size: 16px; font-weight: normal;";
+
+    QLabel *scholarshipLabel = new QLabel(scholarship, milestonePage);
+    scholarshipLabel->setStyleSheet(labelStyle);
+    milestoneLayout->addWidget(scholarshipLabel);
+
+    QLabel *financialAidLabel = new QLabel(financialAid, milestonePage);
+    financialAidLabel->setStyleSheet(labelStyle);
+    milestoneLayout->addWidget(financialAidLabel);
+
+    QLabel *fellowshipLabel = new QLabel(fellowship, milestonePage);
+    fellowshipLabel->setStyleSheet(labelStyle);
+    milestoneLayout->addWidget(fellowshipLabel);
+
+    QLabel *internshipLabel = new QLabel(internship, milestonePage);
+    internshipLabel->setStyleSheet(labelStyle);
+    milestoneLayout->addWidget(internshipLabel);
+
+
+    milestonePage->setLayout(milestoneLayout);
+}
+
+void NavigationWindow::on_milestoneButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void NavigationWindow::on_recommendationButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void NavigationWindow::on_guidanceButton_clicked() {
+    ui->stackedWidget->setCurrentIndex(3);
+}

@@ -53,6 +53,7 @@ StudentInfo Student::validateLogin(const QString &email, const QString &id, cons
                     info.name = obj["name"].toString();
                     info.gpa = QString::number(obj["gpa"].toDouble(), 'f', 2); // Format GPA to 2 decimal places
                     info.semester = QString::number(obj["semester"].toInt());
+                    info.major = obj["major"].toString();
                     return info;
                 }
             }

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NavigationWindow</class>
+ <widget class="QWidget" name="NavigationWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>836</width>
+    <height>495</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 247, 255);</string>
+  </property>
+  <widget class="QLabel" name="studentNameLabel">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>10</y>
+     <width>331</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 255);
+font: 900 12pt &quot;Segoe UI Black&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="semesterLabel">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>50</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>811</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:10px;</string>
+   </property>
+   <property name="currentIndex">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="welcomePage">
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <widget class="QPlainTextEdit" name="moto">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>781</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 24pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 255);
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="plainText">
+      <string>Student Success Empowers 
+Your Student Journey...</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="milesonePage">
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>30</y>
+       <width>531</width>
+       <height>321</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Segoe UI&quot;;
+background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string> Title     Descrition      Status
+ Schollarship Jack kent Cooke Recieved
+ Finacial Aid Tap Recieved
+ FellowShip Jump Start In progress
+ Internship JPmorgan Internship Completed
+ GPA 4.0 2 Semester
+</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="recommendationPage">
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>771</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Scholarships</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>280</y>
+       <width>731</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Clubs</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>170</y>
+       <width>671</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Internships</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>581</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>CUNY Service Corps Internship Community Service and Career Development</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>300</y>
+       <width>801</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>BMCC Programming Club Academic and Career Development Club The Programming Club provides 
+a platform for students interested in coding, software development, and technology. </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>801</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Excelsior Scholarship Merit and Residency-Based Scholarship 
+A tuition-free scholarship for New York State residents attending CUNY or SUNY schools. 
+Students must enroll full time, complete their degree on time, and stay in New York after graduation</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>801</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>BMCC Internship Program Career Development Internship</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>751</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>BMCC Foundation Scholarship Need-Based Scholarship A need-based scholarship awarded to students with financial hardship and strong academic performance. Recipients 
+must maintain a 3.0 GPA and full-time enrollment</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="guidancePage">
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <widget class="QWidget" name="QVBoxLayout" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>711</width>
+       <height>401</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>511</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Learning Tips:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>280</y>
+       <width>641</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(0, 0, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Study Tips:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>651</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string>Create a Dedicated Study Schedule 
+ 
+Set specific times and durations for studying each day to build a habit. 
+Example: Study math from 3–4 PM and take a 10-minute break before moving to another subject. 
+Minimize Distractions</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>641</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+     </property>
+     <property name="text">
+      <string> 
+ Practice Active Recall 
+Test yourself on key concepts instead of passively re-reading notes. 
+Example: After studying a topic, close your book and try to explain it in your own words. 
+Use Spaced Repetition 
+ 
+Review material at gradually increasing intervals to improve long-term memory retention. 
+Example: Use flashcards or apps like Anki to space out your study sessions effectively. 
+Learn by Teaching 
+ 
+Explain topics to others as if you’re teaching; it reinforces your understanding. 
+Example: Form a study group and take turns teaching each other different topic</string>
+     </property>
+    </widget>
+    <zorder>QVBoxLayout</zorder>
+    <zorder>label_12</zorder>
+    <zorder>label_11</zorder>
+    <zorder>label_14</zorder>
+    <zorder>label_10</zorder>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="milestoneButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>0</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#milestoneButton{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 255);
+	border-radius: 5px;
+}
+
+#milestoneButton:hover{
+	background-color: rgb(0, 85, 255);
+	border-color: rgb(255, 0, 0);
+}
+#milestoneButton:focus{
+	
+	background-color: rgb(0, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Milestone</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="guidanceButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>0</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#guidanceButton{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 255);
+	border-radius: 5px;
+}
+
+#guidanceButton:hover{
+	background-color: rgb(0, 85, 255);
+	border-color: rgb(255, 0, 0);
+}
+#guidanceButton:focus{
+	
+	background-color: rgb(0, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Guidence</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="recommendationButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#recommendationButton{
+	font: 700 12pt &quot;Segoe UI&quot;;
+	color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 255);
+	border-radius: 5px;
+}
+
+#recommendationButton:hover{
+	background-color: rgb(0, 85, 255);
+	border-color: rgb(255, 0, 0);
+}
+#recommendationButton:focus{
+	
+	background-color: rgb(0, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>Recommendation</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="majorLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>321</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="gpaLabel">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>50</y>
+     <width>181</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(0, 0, 0);
+font: 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>stackedWidget</zorder>
+  <zorder>studentNameLabel</zorder>
+  <zorder>semesterLabel</zorder>
+  <zorder>milestoneButton</zorder>
+  <zorder>guidanceButton</zorder>
+  <zorder>recommendationButton</zorder>
+  <zorder>majorLabel</zorder>
+  <zorder>gpaLabel</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

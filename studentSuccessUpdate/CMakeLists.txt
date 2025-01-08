@@ -11,13 +11,12 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Debugging support
-option(BUILD_DEBUG "Enable debug symbols" ON)
-if(BUILD_DEBUG)
+# Set build type to Debug by default
+if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# Find Qt Package\
+# Find Qt Package
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
@@ -27,6 +26,12 @@ set(PROJECT_SOURCES
     mainwindow.cpp mainwindow.h mainwindow.ui
 
     student.cpp student.h
+    user.cpp user.h
+
+    navigationwindow.cpp navigationwindow.h navigationwindow.ui
+    milestoneWindow.cpp milestoneWindow.h milestoneWindow.ui
+    recommendationWindow.cpp recommendationWindow.h recommendationWindow.ui
+    guidanceWindow.cpp guidanceWindow.h guidanceWindow.ui
 )
 
 # Add Executable
@@ -34,17 +39,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(studentSuccessUpdate
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        user.h user.cpp
-
-
-
-
-
-        navigationwindow.ui
-        navigationwindow.h navigationwindow.cpp navigationwindow.ui
-        milestoneWindow.h milestoneWindow.cpp milestoneWindow.ui
-        recommendationWindow.h recommendationWindow.cpp recommendationWindow.ui
-        guidanceWindow.h guidanceWindow.cpp guidanceWindow.ui
     )
 else()
     if(ANDROID)
@@ -62,11 +56,8 @@ endif()
 target_link_libraries(studentSuccessUpdate PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 # Bundle Settings for macOS/iOS
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-    set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.studentSuccessUpdate)
-endif()
 set_target_properties(studentSuccessUpdate PROPERTIES
-    ${BUNDLE_ID_OPTION}
+    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.studentSuccessUpdate
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
